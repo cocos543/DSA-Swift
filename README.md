@@ -39,3 +39,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [顺序栈](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Stack/Stack.swift) ✓
 
 * [链式栈](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Stack/LinkedStack.swift) ✓
+
+## [队列](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Queue)
+
+* [顺序队列](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Queue/Queue.swift) ✓
