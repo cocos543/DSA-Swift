@@ -18,6 +18,6 @@ class TestInheritance: SinglyLinkedNode {
     }
     
     override func openFunc() {
-        print("Hi \(value)~")
+        print("Hi \(value!)~")
     }
 }

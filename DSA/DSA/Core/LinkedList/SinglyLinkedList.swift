@@ -37,7 +37,7 @@ open class SinglyLinkedList: NSObject {
         self.head = SinglyLinkedNode()
     }
     
-    /// 从一个头节点中构建出一个链表对象
+    /// 从一个节点中构建出一个链表对象
     ///
     /// - Parameter node: 第一个节点
     @objc public init(node: SinglyLinkedNode) {

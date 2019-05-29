@@ -22,6 +22,7 @@
 		ED50B48F22952E1F00534ECA /* BubbleSort.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED50B48922952E1F00534ECA /* BubbleSort.jpg */; };
 		ED61E1AA229B7E0400DC61A6 /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61E1A9229B7E0400DC61A6 /* types.swift */; };
 		ED61E1AF229BD6C400DC61A6 /* SinglyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61E1AE229BD6C400DC61A6 /* SinglyLinkedListTests.swift */; };
+		ED86D073229E19D300BCECEC /* DoubleLinkedListsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D072229E19D300BCECEC /* DoubleLinkedListsTests.swift */; };
 		EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		ED50B48922952E1F00534ECA /* BubbleSort.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BubbleSort.jpg; sourceTree = "<group>"; };
 		ED61E1A9229B7E0400DC61A6 /* types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = types.swift; sourceTree = "<group>"; };
 		ED61E1AE229BD6C400DC61A6 /* SinglyLinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedListTests.swift; sourceTree = "<group>"; };
+		ED86D072229E19D300BCECEC /* DoubleLinkedListsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLinkedListsTests.swift; sourceTree = "<group>"; };
 		EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLinkedLists.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 				ED50B4082295274800534ECA /* DSATests.swift */,
 				ED50B40A2295274800534ECA /* Info.plist */,
 				ED61E1AE229BD6C400DC61A6 /* SinglyLinkedListTests.swift */,
+				ED86D072229E19D300BCECEC /* DoubleLinkedListsTests.swift */,
 			);
 			path = DSATests;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				ED61E1AF229BD6C400DC61A6 /* SinglyLinkedListTests.swift in Sources */,
 				ED50B4092295274800534ECA /* DSATests.swift in Sources */,
+				ED86D073229E19D300BCECEC /* DoubleLinkedListsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
