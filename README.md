@@ -32,3 +32,10 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 时间复杂度O(n), 空间复杂度O(1)
 
 ## [双向链表](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/LinkedList/DoubleLinkedLists.swift)
+
+## [栈](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Stack)
+
+### 栈存储结构
+* [顺序栈](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Stack/Stack.swift) ✓
+
+* [链式栈](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Stack/LinkedStack.swift) ✓

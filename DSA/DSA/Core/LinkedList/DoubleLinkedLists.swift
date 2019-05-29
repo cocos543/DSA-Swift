@@ -22,6 +22,49 @@ open class DoubleLinkedNode: NSObject {
     @objc public init(val: Any) {
         value = val
     }
+    
+    
+    /// 封装了节点的插入操作, 将新节点插入目标节点之后
+    ///
+    /// - Parameters:
+    ///   - target: 目标节点
+    ///   - node: 新节点
+    @objc static public func InsertNodeAfter(target: DoubleLinkedNode, node: DoubleLinkedNode) {
+        // 这里如果target.next为nil, 可以正常运行, 所以不需要额外判断其是否为nil
+        target.next?.perv = node
+        node.next = target.next
+        node.perv = target
+        target.next = node
+    }
+    
+    
+    /// 封装了节点的删除操作, 删除目标节点
+    ///
+    /// - Parameter target: 目标节点
+    @objc static public func DeleteNode(target: DoubleLinkedNode) {
+        target.next?.perv = target.perv
+        target.perv?.next = target.next
+        
+        target.perv = nil
+        target.next = nil
+    }
+}
+
+open class DoubleLinkedLists: NSObject {
+    
+    @objc private var head: DoubleLinkedNode
+    
+    @objc open private(set) var length: Int = 0
+    
+    @objc public override init() {
+        self.head = DoubleLinkedNode()
+    }
+    
+    @objc public init(node: DoubleLinkedNode) {
+        self.head = DoubleLinkedNode()
+        super.init()
+        self.InsertNode(node: node)
+    }
 }
 
 // MARK: - Debug
@@ -44,23 +87,6 @@ extension DoubleLinkedLists {
         listString2 = "head" + listString2
         
         return listString1 + listString2
-    }
-}
-
-open class DoubleLinkedLists: NSObject {
-    
-    @objc open var head: DoubleLinkedNode
-    
-    @objc open var length: Int = 0
-    
-    @objc public override init() {
-        self.head = DoubleLinkedNode()
-    }
-    
-    @objc public init(node: DoubleLinkedNode) {
-        self.head = DoubleLinkedNode()
-        super.init()
-        self.InsertNode(node: node)
     }
 }
 
@@ -114,8 +140,7 @@ extension DoubleLinkedLists {
         }
         
         // 插入节点
-        node.perv = p
-        p?.next = node
+        DoubleLinkedNode.InsertNodeAfter(target: p!, node: node)
         
         self.length += 1
     }
@@ -131,12 +156,7 @@ extension DoubleLinkedLists {
         
         let p: DoubleLinkedNode? = self.head
         
-        node.next = p?.next
-        // 这里如果node.next为nil, 可以正常运行, 所以不需要额外判断node.next是否为nil
-        node.next?.perv = node
-        node.perv = p
-        
-        p?.next = node
+        DoubleLinkedNode.InsertNodeAfter(target: p!, node: node)
         
         self.length += 1
     }
@@ -160,12 +180,7 @@ extension DoubleLinkedLists {
         
         if p == dest {
             // 找到目标节点, 则在其后插入一个新节点
-            p?.next?.perv = node
-            
-            node.perv = p
-            node.next = p?.next
-            
-            p?.next = node
+            DoubleLinkedNode.InsertNodeAfter(target: p!, node: node)
             
             self.length += 1
             return true
@@ -197,12 +212,7 @@ extension DoubleLinkedLists {
         
         if cmp(p!.value, dest) {
             // 找到目标节点, 则在其后插入一个新节点
-            p?.next?.perv = node
-            
-            node.perv = p
-            node.next = p?.next
-            
-            p?.next = node
+            DoubleLinkedNode.InsertNodeAfter(target: p!, node: node)
             
             self.length += 1
             return true
@@ -233,8 +243,7 @@ extension DoubleLinkedLists {
         
         if p?.next == node {
             // 删除节点
-            node.next?.perv = p
-            p?.next = node.next
+            DoubleLinkedNode.DeleteNode(target: node)
             
             print("delete \(String(describing: node.value ?? 0))")
             
@@ -263,12 +272,17 @@ extension DoubleLinkedLists {
         }
         
         // 删除节点
-        p?.next?.perv = p?.perv
-        p?.perv?.next = p?.next
+        DoubleLinkedNode.DeleteNode(target: p!)
         
         // p 节点没人引用的话会被自动回收
         print("delete \(String(describing: p?.value ?? 0))")
         
         self.length -= 1
+    }
+    
+    
+    /// 移除所有节点
+    @objc open func DropNodes() {
+        self.head.next = nil
     }
 }

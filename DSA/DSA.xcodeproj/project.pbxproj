@@ -23,6 +23,9 @@
 		ED61E1AA229B7E0400DC61A6 /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61E1A9229B7E0400DC61A6 /* types.swift */; };
 		ED61E1AF229BD6C400DC61A6 /* SinglyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61E1AE229BD6C400DC61A6 /* SinglyLinkedListTests.swift */; };
 		ED86D073229E19D300BCECEC /* DoubleLinkedListsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D072229E19D300BCECEC /* DoubleLinkedListsTests.swift */; };
+		ED86D076229E5F5500BCECEC /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D075229E5F5500BCECEC /* Stack.swift */; };
+		ED86D078229E648900BCECEC /* LinkedStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D077229E648900BCECEC /* LinkedStack.swift */; };
+		ED86D07A229E6EEF00BCECEC /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D079229E6EEF00BCECEC /* StackTests.swift */; };
 		EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		ED61E1A9229B7E0400DC61A6 /* types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = types.swift; sourceTree = "<group>"; };
 		ED61E1AE229BD6C400DC61A6 /* SinglyLinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedListTests.swift; sourceTree = "<group>"; };
 		ED86D072229E19D300BCECEC /* DoubleLinkedListsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLinkedListsTests.swift; sourceTree = "<group>"; };
+		ED86D075229E5F5500BCECEC /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		ED86D077229E648900BCECEC /* LinkedStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedStack.swift; sourceTree = "<group>"; };
+		ED86D079229E6EEF00BCECEC /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLinkedLists.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +132,7 @@
 				ED50B40A2295274800534ECA /* Info.plist */,
 				ED61E1AE229BD6C400DC61A6 /* SinglyLinkedListTests.swift */,
 				ED86D072229E19D300BCECEC /* DoubleLinkedListsTests.swift */,
+				ED86D079229E6EEF00BCECEC /* StackTests.swift */,
 			);
 			path = DSATests;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 			children = (
 				ED61E1A9229B7E0400DC61A6 /* types.swift */,
 				ED0E80102295310B00BD254F /* LinkedList */,
+				ED86D074229E5F1300BCECEC /* Stack */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -158,6 +166,15 @@
 				ED50B48422952E1F00534ECA /* StraightInsertionSort.jpg */,
 			);
 			path = Img;
+			sourceTree = "<group>";
+		};
+		ED86D074229E5F1300BCECEC /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				ED86D075229E5F5500BCECEC /* Stack.swift */,
+				ED86D077229E648900BCECEC /* LinkedStack.swift */,
+			);
+			path = Stack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED86D078229E648900BCECEC /* LinkedStack.swift in Sources */,
 				EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */,
+				ED86D076229E5F5500BCECEC /* Stack.swift in Sources */,
 				ED50B47F22952AAF00534ECA /* DSAOC.m in Sources */,
 				ED50B47A2295294B00534ECA /* SinglyLinkedList.swift in Sources */,
 				ED61E1AA229B7E0400DC61A6 /* types.swift in Sources */,
@@ -288,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED86D07A229E6EEF00BCECEC /* StackTests.swift in Sources */,
 				ED61E1AF229BD6C400DC61A6 /* SinglyLinkedListTests.swift in Sources */,
 				ED50B4092295274800534ECA /* DSATests.swift in Sources */,
 				ED86D073229E19D300BCECEC /* DoubleLinkedListsTests.swift in Sources */,

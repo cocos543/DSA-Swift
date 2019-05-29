@@ -27,7 +27,7 @@ class SinglyLinkedListTests: XCTestCase {
     }
     
     func testSinglyLinkNodeInsert() {
-        let node1 = SinglyLinkedNode(val: 1)
+        let node1 = DSA.SinglyLinkedNode(val: 1)
         let node2 = SinglyLinkedNode(val: 2)
         let node3 = SinglyLinkedNode(val: 3)
         let node4 = SinglyLinkedNode(val: 4)

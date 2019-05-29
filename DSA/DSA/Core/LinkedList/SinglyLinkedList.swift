@@ -29,8 +29,8 @@ open class SinglyLinkedNode: NSObject {
 
 /// 单链表
 open class SinglyLinkedList: NSObject {
-    @objc open var head: SinglyLinkedNode
-    @objc open var length: Int = 0
+    @objc private var head: SinglyLinkedNode
+    @objc open private(set) var length: Int = 0
     
     /// 初始化一条只有头节点的空链表
     @objc public override init() {
