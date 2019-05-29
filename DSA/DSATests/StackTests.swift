@@ -23,11 +23,11 @@ class StackTests: XCTestCase {
         XCTAssertEqual("1-2-3-4-5-", "\(stack)")
         XCTAssertEqual(5, stack.count)
         
-        XCTAssertEqual(5, stack.Pop()! as! Int)
-        XCTAssertEqual(4, stack.Pop()! as! Int)
-        XCTAssertEqual(3, stack.Pop()! as! Int)
-        XCTAssertEqual(2, stack.Pop()! as! Int)
-        XCTAssertEqual(1, stack.Pop()! as! Int)
+        XCTAssertEqual(5, stack.Pop() as! Int)
+        XCTAssertEqual(4, stack.Pop() as! Int)
+        XCTAssertEqual(3, stack.Pop() as! Int)
+        XCTAssertEqual(2, stack.Pop() as! Int)
+        XCTAssertEqual(1, stack.Pop() as! Int)
         XCTAssertEqual(0, stack.count)
         XCTAssertEqual(true, stack.Pop() == nil)
     }
@@ -45,11 +45,11 @@ class StackTests: XCTestCase {
         XCTAssertEqual("1-2-3-4-5-", "\(stack)")
         XCTAssertEqual(5, stack.count)
         
-        XCTAssertEqual(5, stack.Pop()! as! Int)
-        XCTAssertEqual(4, stack.Pop()! as! Int)
-        XCTAssertEqual(3, stack.Pop()! as! Int)
-        XCTAssertEqual(2, stack.Pop()! as! Int)
-        XCTAssertEqual(1, stack.Pop()! as! Int)
+        XCTAssertEqual(5, stack.Pop() as! Int)
+        XCTAssertEqual(4, stack.Pop() as! Int)
+        XCTAssertEqual(3, stack.Pop() as! Int)
+        XCTAssertEqual(2, stack.Pop() as! Int)
+        XCTAssertEqual(1, stack.Pop() as! Int)
         XCTAssertEqual(0, stack.count)
         XCTAssertEqual(true, stack.Pop() == nil)
     }

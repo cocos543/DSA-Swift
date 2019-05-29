@@ -14,10 +14,17 @@ open class LinkedStack: NSObject {
     @objc private var items: DoubleLinkedLists
     @objc private var _topNode: DoubleLinkedNode?
     
-    @objc open private(set) var count: Int = 0 //栈中元素数量
+    
+    /// 栈中元素数量
+    @objc open private(set) var count: Int = 0
+    
+    /// 栈最大容量
     @objc open private(set) var cap: Int
     
     @objc public init(cap: Int) {
+        if cap <= 0 {
+            fatalError("cap must be greater than 0")
+        }
         self.items = DoubleLinkedLists()
         self.cap = cap
     }

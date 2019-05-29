@@ -26,6 +26,8 @@
 		ED86D076229E5F5500BCECEC /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D075229E5F5500BCECEC /* Stack.swift */; };
 		ED86D078229E648900BCECEC /* LinkedStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D077229E648900BCECEC /* LinkedStack.swift */; };
 		ED86D07A229E6EEF00BCECEC /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D079229E6EEF00BCECEC /* StackTests.swift */; };
+		ED86D07D229E897C00BCECEC /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D07C229E897C00BCECEC /* Queue.swift */; };
+		ED86D07F229E8FF700BCECEC /* QueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D07E229E8FF700BCECEC /* QueueTests.swift */; };
 		EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		ED86D075229E5F5500BCECEC /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		ED86D077229E648900BCECEC /* LinkedStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedStack.swift; sourceTree = "<group>"; };
 		ED86D079229E6EEF00BCECEC /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
+		ED86D07C229E897C00BCECEC /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		ED86D07E229E8FF700BCECEC /* QueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueTests.swift; sourceTree = "<group>"; };
 		EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLinkedLists.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +137,7 @@
 				ED61E1AE229BD6C400DC61A6 /* SinglyLinkedListTests.swift */,
 				ED86D072229E19D300BCECEC /* DoubleLinkedListsTests.swift */,
 				ED86D079229E6EEF00BCECEC /* StackTests.swift */,
+				ED86D07E229E8FF700BCECEC /* QueueTests.swift */,
 			);
 			path = DSATests;
 			sourceTree = "<group>";
@@ -140,9 +145,10 @@
 		ED50B478229528FE00534ECA /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				ED61E1A9229B7E0400DC61A6 /* types.swift */,
 				ED0E80102295310B00BD254F /* LinkedList */,
 				ED86D074229E5F1300BCECEC /* Stack */,
+				ED86D07B229E895C00BCECEC /* Queue */,
+				ED61E1A9229B7E0400DC61A6 /* types.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -175,6 +181,14 @@
 				ED86D077229E648900BCECEC /* LinkedStack.swift */,
 			);
 			path = Stack;
+			sourceTree = "<group>";
+		};
+		ED86D07B229E895C00BCECEC /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				ED86D07C229E897C00BCECEC /* Queue.swift */,
+			);
+			path = Queue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED86D078229E648900BCECEC /* LinkedStack.swift in Sources */,
+				ED86D07D229E897C00BCECEC /* Queue.swift in Sources */,
 				EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */,
 				ED86D076229E5F5500BCECEC /* Stack.swift in Sources */,
 				ED50B47F22952AAF00534ECA /* DSAOC.m in Sources */,
@@ -309,6 +324,7 @@
 			files = (
 				ED86D07A229E6EEF00BCECEC /* StackTests.swift in Sources */,
 				ED61E1AF229BD6C400DC61A6 /* SinglyLinkedListTests.swift in Sources */,
+				ED86D07F229E8FF700BCECEC /* QueueTests.swift in Sources */,
 				ED50B4092295274800534ECA /* DSATests.swift in Sources */,
 				ED86D073229E19D300BCECEC /* DoubleLinkedListsTests.swift in Sources */,
 			);
