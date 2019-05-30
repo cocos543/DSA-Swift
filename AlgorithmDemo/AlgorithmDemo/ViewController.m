@@ -47,8 +47,60 @@
     // 混合调用本地Swift代码
     TestInheritance *ti = [[TestInheritance alloc] initWithVal:@(10086)];
     [ti openFunc];
+    
+    NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"a",@"b",@"c",@"d", nil];
+    NSInteger total = [self fullPermutation:arr start:0 end:3];
+    NSLog(@"%ld", (long)total);
+    
+    
 }
 
+
+- (void)swap:(NSString **)a b:(NSString **)b {
+    NSString *t = *b;
+    *b = *a;
+    *a = t;
+}
+
+- (void)swap:(NSMutableArray *)arr a:(NSInteger)a b:(NSInteger)b {
+    NSString *t = arr[b];
+    arr[b] = arr[a];
+    arr[a] = t;
+}
+
+/**
+ 字符串全排列
+ 
+ 算法思路: 每次把一个元素固定到头部,接着递归剩余字符串, 回归时恢复元素位置, 确保数组数据不被修改
+
+ @param array 字符串数组...每一个元素都是NSString
+ @param start 当前字符串起始位置
+ @param end 字符串结束位置
+ @return 固定为1
+ */
+- (NSInteger)fullPermutation:(NSMutableArray<NSString *> *)array start:(NSInteger)start end:(NSInteger)end {
+    if (start == end) {
+        NSString *str = @"";
+        for (NSString *val in array) {
+            str = [NSString stringWithFormat:@"%@%@", str, val];
+        }
+        printf("%s\n", str.UTF8String);
+        return 1;
+    }
+    
+    NSInteger count = 0;
+    for (NSInteger i = start; i <= end; i++) {
+        // 交换位置
+        [self swap:array a:start b:i];
+        
+        count += [self fullPermutation:array start:start+1 end:end];
+        
+        // 恢复位置
+        [self swap:array a:start b:i];
+    }
+    
+    return count;
+}
 
 
 @end

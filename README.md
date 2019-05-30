@@ -43,3 +43,22 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 ## [队列](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Queue)
 
 * [顺序队列](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Queue/Queue.swift) ✓
+
+## [排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort)
+
+### 稳定的排序算法
+
+* [冒泡排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort.Swift) ✓
+
+最好时间复杂度O(n), 最坏时间复杂度O(n^2), 平均时间复杂度O(n^2), 空间复杂度O(1)
+![image](https://github.com/cocos543/DSA-Swift/tree/master/DSA/DSA/Resource/Img/BubbleSort.jpg)
+
+* [直接插入排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort.Swift) ✓
+
+最好时间复杂度O(n), 最坏时间复杂度O(n^2), 平均时间复杂度O(n^2), 空间复杂度O(1)
+![image](https://github.com/cocos543/DSA-Swift/tree/master/DSA/DSA/Resource/Img/StraightInsertionSort.jpg)
+
+*[选择排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort.Swift) ✓
+
+最好时间复杂度O(n^2), 最坏时间复杂度O(n^2), 平均时间复杂度O(n^2), 空间复杂度O(1)
+![image](https://github.com/cocos543/DSA-Swift/tree/master/DSA/DSA/Resource/Img/SelectionSort.jpg)
