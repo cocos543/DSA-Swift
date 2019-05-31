@@ -33,6 +33,8 @@
 		ED86D07D229E897C00BCECEC /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D07C229E897C00BCECEC /* Queue.swift */; };
 		ED86D07F229E8FF700BCECEC /* QueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D07E229E8FF700BCECEC /* QueueTests.swift */; };
 		EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */; };
+		EDE1572222A0BB4900DB4D69 /* SortQuick.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1572122A0BB4900DB4D69 /* SortQuick.swift */; };
+		EDE1572422A0BC1200DB4D69 /* SortMerging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1572322A0BC1200DB4D69 /* SortMerging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		ED86D07C229E897C00BCECEC /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		ED86D07E229E8FF700BCECEC /* QueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueTests.swift; sourceTree = "<group>"; };
 		EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLinkedLists.swift; sourceTree = "<group>"; };
+		EDE1572122A0BB4900DB4D69 /* SortQuick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortQuick.swift; sourceTree = "<group>"; };
+		EDE1572322A0BC1200DB4D69 /* SortMerging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMerging.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				ED33A644229FAD9000E5035E /* Sort.swift */,
+				EDE1572122A0BB4900DB4D69 /* SortQuick.swift */,
+				EDE1572322A0BC1200DB4D69 /* SortMerging.swift */,
 			);
 			path = Sort;
 			sourceTree = "<group>";
@@ -332,8 +338,10 @@
 				ED86D078229E648900BCECEC /* LinkedStack.swift in Sources */,
 				ED86D07D229E897C00BCECEC /* Queue.swift in Sources */,
 				EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */,
+				EDE1572222A0BB4900DB4D69 /* SortQuick.swift in Sources */,
 				ED86D076229E5F5500BCECEC /* Stack.swift in Sources */,
 				ED50B47F22952AAF00534ECA /* DSAOC.m in Sources */,
+				EDE1572422A0BC1200DB4D69 /* SortMerging.swift in Sources */,
 				ED33A649229FB6C100E5035E /* Helper.swift in Sources */,
 				ED33A645229FAD9000E5035E /* Sort.swift in Sources */,
 				ED50B47A2295294B00534ECA /* SinglyLinkedList.swift in Sources */,

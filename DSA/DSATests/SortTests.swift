@@ -43,4 +43,46 @@ class SortTests: XCTestCase {
         })
         XCTAssertEqual("[1, 2, 3, 4, 5, 6]", "\(arr)")
     }
+    
+    func testSortMerging() {
+        var arr:[Any] = [11,8,3,9,7,1,2,5]
+        arr = Sort.MergingSort(arr:arr) {
+            ($0 as! Int) < ($1 as! Int)
+        }
+        
+        XCTAssertEqual("[1, 2, 3, 5, 7, 8, 9, 11]", "\(arr)")
+        
+    }
+    
+    func testSortQuick() {
+        var arr:[Any] = [6,11,3,9,8]
+        arr = Sort.QuickSort(arr: arr) {
+            ($0 as! Int) < ($1 as! Int)
+        }
+        
+        XCTAssertEqual("[3, 6, 8, 9, 11]", "\(arr)")
+        
+        arr = [11,8,3,9,7,1,2,5]
+        arr = Sort.QuickSort(arr:arr) {
+            ($0 as! Int) < ($1 as! Int)
+        }
+
+        XCTAssertEqual("[1, 2, 3, 5, 7, 8, 9, 11]", "\(arr)")
+        
+        arr = [11,8,3,9,7,1,2,5,12]
+        var k = Sort.FindKthLargest(arr:arr, k: 9) {
+            // 这里是找k大, 所以需要逆序, 大的在前
+            ($0 as! Int) > ($1 as! Int)
+        }
+        
+        XCTAssertEqual("1", "\(k)")
+        
+        arr = [12,23]
+        k = Sort.FindKthLargest(arr:arr, k: 2) {
+            // 这里是找k大, 所以需要逆序, 大的在前
+            ($0 as! Int) > ($1 as! Int)
+        }
+        
+        XCTAssertEqual("12", "\(k)")
+    }
 }
