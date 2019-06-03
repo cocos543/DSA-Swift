@@ -33,6 +33,8 @@
 		ED86D07D229E897C00BCECEC /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D07C229E897C00BCECEC /* Queue.swift */; };
 		ED86D07F229E8FF700BCECEC /* QueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D07E229E8FF700BCECEC /* QueueTests.swift */; };
 		EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */; };
+		EDCA206922A4F22400A7ADB3 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA206822A4F22400A7ADB3 /* Search.swift */; };
+		EDCA206B22A4FC0400A7ADB3 /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA206A22A4FC0400A7ADB3 /* SearchTests.swift */; };
 		EDE1572222A0BB4900DB4D69 /* SortQuick.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1572122A0BB4900DB4D69 /* SortQuick.swift */; };
 		EDE1572422A0BC1200DB4D69 /* SortMerging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1572322A0BC1200DB4D69 /* SortMerging.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +79,8 @@
 		ED86D07C229E897C00BCECEC /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		ED86D07E229E8FF700BCECEC /* QueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueTests.swift; sourceTree = "<group>"; };
 		EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLinkedLists.swift; sourceTree = "<group>"; };
+		EDCA206822A4F22400A7ADB3 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		EDCA206A22A4FC0400A7ADB3 /* SearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTests.swift; sourceTree = "<group>"; };
 		EDE1572122A0BB4900DB4D69 /* SortQuick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortQuick.swift; sourceTree = "<group>"; };
 		EDE1572322A0BC1200DB4D69 /* SortMerging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMerging.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +165,7 @@
 				ED86D079229E6EEF00BCECEC /* StackTests.swift */,
 				ED86D07E229E8FF700BCECEC /* QueueTests.swift */,
 				ED33A646229FADED00E5035E /* SortTests.swift */,
+				EDCA206A22A4FC0400A7ADB3 /* SearchTests.swift */,
 			);
 			path = DSATests;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 		ED50B478229528FE00534ECA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EDCA206722A4F18000A7ADB3 /* Search */,
 				ED33A643229FAD7000E5035E /* Sort */,
 				ED0E80102295310B00BD254F /* LinkedList */,
 				ED86D074229E5F1300BCECEC /* Stack */,
@@ -215,6 +221,14 @@
 				ED86D07C229E897C00BCECEC /* Queue.swift */,
 			);
 			path = Queue;
+			sourceTree = "<group>";
+		};
+		EDCA206722A4F18000A7ADB3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				EDCA206822A4F22400A7ADB3 /* Search.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +358,7 @@
 				EDE1572422A0BC1200DB4D69 /* SortMerging.swift in Sources */,
 				ED33A649229FB6C100E5035E /* Helper.swift in Sources */,
 				ED33A645229FAD9000E5035E /* Sort.swift in Sources */,
+				EDCA206922A4F22400A7ADB3 /* Search.swift in Sources */,
 				ED50B47A2295294B00534ECA /* SinglyLinkedList.swift in Sources */,
 				ED61E1AA229B7E0400DC61A6 /* Types.swift in Sources */,
 			);
@@ -356,6 +371,7 @@
 				ED86D07A229E6EEF00BCECEC /* StackTests.swift in Sources */,
 				ED33A647229FADED00E5035E /* SortTests.swift in Sources */,
 				ED61E1AF229BD6C400DC61A6 /* SinglyLinkedListTests.swift in Sources */,
+				EDCA206B22A4FC0400A7ADB3 /* SearchTests.swift in Sources */,
 				ED86D07F229E8FF700BCECEC /* QueueTests.swift in Sources */,
 				ED50B4092295274800534ECA /* DSATests.swift in Sources */,
 				ED86D073229E19D300BCECEC /* DoubleLinkedListsTests.swift in Sources */,

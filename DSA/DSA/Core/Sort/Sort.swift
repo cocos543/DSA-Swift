@@ -146,7 +146,7 @@ open class Sort: NSObject {
         
         var max = 0
         for i in 0..<arr.count {
-            if cmp(max, arr[i]) == -1 {
+            if cmp(max, arr[i]) == CompareF2Result.less {
                 max = arr[i]
             }
         }

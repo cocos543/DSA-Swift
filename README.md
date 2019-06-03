@@ -86,3 +86,9 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 分区函数算法示意图
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/QuickSortPartition.jpg)
 
+### 二分查找
+
+* [二分查找](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Search/Search.swift) ✓
+
+时间复杂度O(logn), 空间复杂度O(1)
+![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinarySearch.jpg)
