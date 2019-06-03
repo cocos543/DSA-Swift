@@ -129,4 +129,46 @@ open class Sort: NSObject {
         
         return arr
     }
+    
+    
+    /// 计数排序, 稳定的, 要求数据必须是正整数,范围越小越好
+    /// 时间复杂度O(n)
+    ///
+    /// 算法思路: 先使用一个数组c, 下标值表示元素值, 下标对应的数组内容表示小于等于该元素的元素个数;
+    /// 例如数组[2,1,2], 得到c[0,1,3] , 表示小于等于2的数字有3个, 小于等于1的数字有1个, 小于等于0的数字有0个
+    /// 接着用一个临时数组, 和原数组一样大小, 然后从c中逐个查出所有元素的最终位置, 直接赋值到临时数组上即可.
+    ///
+    /// - Parameters:
+    ///   - arr: 未排序数组
+    ///   - cmp: 大小函数, 该算法只支持从小到大排序
+    /// - Returns: 有序数组
+    @objc static public func CountingSort(arr: [Int], cmp: CompareF2) -> [Int] {
+        
+        var max = 0
+        for i in 0..<arr.count {
+            if cmp(max, arr[i]) == -1 {
+                max = arr[i]
+            }
+        }
+        
+        var c = Array(repeating: 0, count: max+1)
+        for ele in arr {
+            c[ele] += 1
+        }
+        
+        //对c进行累加运行
+        for i in 1..<c.count {
+            c[i] = c[i-1] + c[i]
+        }
+        
+        var tempArr = Array(repeating: 0, count: arr.count)
+        for ele in arr {
+            // 获取元素的最终位置
+            let index = c[ele] - 1
+            tempArr[index] = ele
+            c[ele] -= 1
+         }
+        
+        return tempArr
+    }
 }

@@ -85,4 +85,8 @@ class SortTests: XCTestCase {
         
         XCTAssertEqual("12", "\(k)")
     }
+    
+    func testCountingSort() {
+        var arr = [11,8,3,9,7,1,2,5]
+    }
 }

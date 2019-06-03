@@ -68,6 +68,10 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 最好时间复杂度O(nlogn), 最坏时间复杂度O(nlogn), 平均时间复杂度O(nlogn), 空间复杂度O(n)
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/MergingSort.jpg)
 
+* [计数排序(特殊桶排序)](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort/Sort.swift) ✓
+
+时间复杂度O(n), 空间复杂度O(n)
+
 ### 不稳定的排序算法
 
 * [快速排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort/SortQuick.swift) ✓
@@ -81,3 +85,4 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 分区函数算法示意图
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/QuickSortPartition.jpg)
+
