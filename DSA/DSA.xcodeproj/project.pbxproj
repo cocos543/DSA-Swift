@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED135D5922A67DED00B7E723 /* LinkedHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED135D5822A67DED00B7E723 /* LinkedHashMap.swift */; };
+		ED135D5B22A67FE500B7E723 /* AddressingHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED135D5A22A67FE500B7E723 /* AddressingHashMap.swift */; };
 		ED33A645229FAD9000E5035E /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33A644229FAD9000E5035E /* Sort.swift */; };
 		ED33A647229FADED00E5035E /* SortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33A646229FADED00E5035E /* SortTests.swift */; };
 		ED33A649229FB6C100E5035E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33A648229FB6C100E5035E /* Helper.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED135D5822A67DED00B7E723 /* LinkedHashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedHashMap.swift; sourceTree = "<group>"; };
+		ED135D5A22A67FE500B7E723 /* AddressingHashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressingHashMap.swift; sourceTree = "<group>"; };
 		ED33A644229FAD9000E5035E /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		ED33A646229FADED00E5035E /* SortTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTests.swift; sourceTree = "<group>"; };
 		ED33A648229FB6C100E5035E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -113,6 +117,15 @@
 			path = LinkedList;
 			sourceTree = "<group>";
 		};
+		ED135D5722A67DCA00B7E723 /* HashTable */ = {
+			isa = PBXGroup;
+			children = (
+				ED135D5822A67DED00B7E723 /* LinkedHashMap.swift */,
+				ED135D5A22A67FE500B7E723 /* AddressingHashMap.swift */,
+			);
+			path = HashTable;
+			sourceTree = "<group>";
+		};
 		ED33A643229FAD7000E5035E /* Sort */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +186,7 @@
 		ED50B478229528FE00534ECA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				ED135D5722A67DCA00B7E723 /* HashTable */,
 				EDCA206722A4F18000A7ADB3 /* Search */,
 				ED33A643229FAD7000E5035E /* Sort */,
 				ED0E80102295310B00BD254F /* LinkedList */,
@@ -349,7 +363,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED135D5B22A67FE500B7E723 /* AddressingHashMap.swift in Sources */,
 				ED86D078229E648900BCECEC /* LinkedStack.swift in Sources */,
+				ED135D5922A67DED00B7E723 /* LinkedHashMap.swift in Sources */,
 				ED86D07D229E897C00BCECEC /* Queue.swift in Sources */,
 				EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */,
 				EDE1572222A0BB4900DB4D69 /* SortQuick.swift in Sources */,

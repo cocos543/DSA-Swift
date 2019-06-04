@@ -20,6 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"%@", @(@"adfada".hash % 10000));
+    NSLog(@"%@", @(@"afaa".hash % 10000));
+    NSLog(@"%@", @(@"bfdaf".hash % 10000));
+    NSLog(@"%@", @(@"ccccc".hash % 10000));
+    NSLog(@"%@", @(NSUIntegerMax % 10000));
+    
     
     // OC调用第三方库Swift类, 其中Any类型映射到OC中为id, 所以只能保存对象类型了.
     SinglyLinkedNode *node1 = [[SinglyLinkedNode alloc] initWithVal:@(1)];

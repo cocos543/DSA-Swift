@@ -86,9 +86,31 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 分区函数算法示意图
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/QuickSortPartition.jpg)
 
+## [查找](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Search)
+
 ### 二分查找
 
 * [二分查找](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Search/Search.swift) ✓
 
 时间复杂度O(logn), 空间复杂度O(1)
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinarySearch.jpg)
+
+* [求解平方根](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Search/Search.swift) ✓
+
+时间复杂度O(logn), 空间复杂度O(1)
+
+### [四种二分查找的变形算法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Search/Search.swift)
+
+1. 查找第一个值等于给定值的元素 ✓
+
+2. 查找最后一个值等于给定值的元素 ✓
+
+3. 查找第一个大于等于给定值的元素 ✓
+
+4. 查找最后一个小于等于给定值的元素 ✓
+
+## [哈希表](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable)
+
+### [链表法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable/LinkedHashMap.swift)
+
+### [开放寻址法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable/AddressingHashMap.swift)
