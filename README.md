@@ -111,6 +111,8 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 ## [哈希表](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable)
 
-### [链表法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable/LinkedHashMap.swift)
+### 冲突解决方式
 
-### [开放寻址法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable/AddressingHashMap.swift)
+* [链表法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable/LinkedHashMap.swift)
+
+* [开放寻址法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable/AddressingHashMap.swift)
