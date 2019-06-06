@@ -115,4 +115,12 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 * [链表法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable/LinkedHashMap.swift)
 
-* [开放寻址法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable/AddressingHashMap.swift)
+* [开放寻址法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/HashTable/AddressingHashMap.swift) ✓
+
+特点:
+
+1. 支持动态扩容策略
+2. 性能稳定, 每次删除, 插入, 查询的时间复杂度都是O(1)
+3. 合理使用内存空间, 不浪费
+
+时间复杂度O(1),  空间复杂度O(n)

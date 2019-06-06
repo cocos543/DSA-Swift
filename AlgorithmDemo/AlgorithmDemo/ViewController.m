@@ -26,6 +26,19 @@
     NSLog(@"%@", @(@"ccccc".hash % 10000));
     NSLog(@"%@", @(NSUIntegerMax % 10000));
     
+    AddressingHashMap *map = [[AddressingHashMap alloc] init];
+    
+    map[@"good"] = @"!@#";
+    map[@"good"] = nil;
+    map[@"good"] = @"../";
+    id v = map[@"11"];
+    v = nil;
+    
+    [map putWithKey:@"11" val:@(111)];
+    NSLog(@"%d", [map remove:@"11"]);
+    NSLog(@"%@", [map get:@"11"]);
+    NSLog(@"%@", [map keys]);
+    
     
     // OC调用第三方库Swift类, 其中Any类型映射到OC中为id, 所以只能保存对象类型了.
     SinglyLinkedNode *node1 = [[SinglyLinkedNode alloc] initWithVal:@(1)];

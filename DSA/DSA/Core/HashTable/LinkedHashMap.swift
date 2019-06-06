@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+open class LinkedHashMap: NSObject {
+    func test() {
+        
+    }
+}
+
+//extension LinkedHashMap: HashOperate {
+//    
+//}
