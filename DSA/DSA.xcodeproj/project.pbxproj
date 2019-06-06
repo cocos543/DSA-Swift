@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		ED135D5922A67DED00B7E723 /* LinkedHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED135D5822A67DED00B7E723 /* LinkedHashMap.swift */; };
 		ED135D5B22A67FE500B7E723 /* AddressingHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED135D5A22A67FE500B7E723 /* AddressingHashMap.swift */; };
+		ED2482F322A8F13700D5AC24 /* AddressingHashTable.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED2482F222A8F13700D5AC24 /* AddressingHashTable.jpg */; };
 		ED33A645229FAD9000E5035E /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33A644229FAD9000E5035E /* Sort.swift */; };
 		ED33A647229FADED00E5035E /* SortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33A646229FADED00E5035E /* SortTests.swift */; };
 		ED33A649229FB6C100E5035E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33A648229FB6C100E5035E /* Helper.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		ED135D5822A67DED00B7E723 /* LinkedHashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedHashMap.swift; sourceTree = "<group>"; };
 		ED135D5A22A67FE500B7E723 /* AddressingHashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressingHashMap.swift; sourceTree = "<group>"; };
+		ED2482F222A8F13700D5AC24 /* AddressingHashTable.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AddressingHashTable.jpg; sourceTree = "<group>"; };
 		ED33A644229FAD9000E5035E /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		ED33A646229FADED00E5035E /* SortTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTests.swift; sourceTree = "<group>"; };
 		ED33A648229FB6C100E5035E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		ED50B48322952DF700534ECA /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				ED2482F222A8F13700D5AC24 /* AddressingHashTable.jpg */,
 				ED33A64A229FDFAA00E5035E /* SelectionSort.jpg */,
 				ED50B48522952E1F00534ECA /* BinarySearch.jpg */,
 				ED50B48922952E1F00534ECA /* BubbleSort.jpg */,
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED50B48B22952E1F00534ECA /* BinarySearch.jpg in Resources */,
+				ED2482F322A8F13700D5AC24 /* AddressingHashTable.jpg in Resources */,
 				ED50B48F22952E1F00534ECA /* BubbleSort.jpg in Resources */,
 				ED50B48D22952E1F00534ECA /* QuickSortPartition.jpg in Resources */,
 				ED50B48C22952E1F00534ECA /* QuickSort.jpg in Resources */,

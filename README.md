@@ -124,3 +124,5 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 3. 合理使用内存空间, 不浪费
 
 时间复杂度O(1),  空间复杂度O(n)
+![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/AddressingHashTable.jpg)
+
