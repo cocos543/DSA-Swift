@@ -4,7 +4,7 @@
 //
 // 性能分析:
 //  插入100万条数据:
-//  Test Case '-[DSATests.AddressingHashMapTests testHashMapDynamicExtension]' measured [Time, seconds] average: 3.138
+//  Test Case '-[DSATests.AddressingHashMapTests testHashMapDynamicExtension]' measured [Time, seconds] average: 6.554
 //
 //  取值100万个数据:
 //  Test Case '-[DSATests.AddressingHashMapTests testHashMapGet]' measured [Time, seconds] average: 2.209
@@ -21,6 +21,10 @@
 
 import Foundation
 
+/// 默认开辟16个位置, 这个数是从JAVA源码里学的
+let DEFAULT_INIT_CAP: Int = 16
+
+
 @objc public protocol HashOperate {
     
     @objc func put(key: String, val: Any?)
@@ -33,10 +37,6 @@ import Foundation
     
     @objc subscript(key: String) -> Any?  { get set }
 }
-
-
-/// 默认开辟16个位置, 这个数是从JAVA源码里学的
-let DEFAULT_INIT_CAP: Int = 16
 
 /// 用于存放进散列表的值
 private struct Element {
@@ -162,14 +162,6 @@ open class AddressingHashMap: NSObject {
         return v % cap
     }
     
-    /// 从旧桶中取出并删除一个新元素,
-    ///
-    /// - Returns: 旧桶里的元素
-    private func _getOldElement() -> Any? {
-        return nil
-    }
-    
-    
     /// 根据需要移动旧数据
     private func _moveOldData() {
         // 检查是否需要搬移旧桶数据
@@ -182,32 +174,81 @@ open class AddressingHashMap: NSObject {
                 _bucketListOld.buckets![_indexOld].value = nil
                 _bucketListOld.buckets![_indexOld].deleted = true
                 _bucketListOld.count -= 1
+                
+                // 旧桶没有数据了,直接删除掉.
+                // 这里需要注意一个问题, 因为上面代码会调用_update(),所以_bucketListOld可能会被更新成更大的桶,从而导致_indexOld不会等于新的cap,
+                // 而是继续向桶的新增部分移动, 导致丢失桶前部分数据.因此需要直接判断桶里的数据是否为0
+                if _bucketListOld.count == 0 {
+                    _bucketListOld.buckets = nil
+                    _indexOld = 0
+                    break
+                }
+                
                 skip = true
             }
             
             // 如果这里直接使用_indexOld += 1, 则可能导致扩容时, 旧桶没有数据了而且被覆盖了. 但是_indexOld还指向后一个位置而不是0,会出现bug
             _indexOld = _nextIndex(_indexOld, _bucketListOld.cap)
             
-            // 旧桶没有数据了,直接删除掉.
-            // 这里需要注意一个问题, 因为上面代码会调用_update(),所以_bucketListOld可能会被更新成更大的桶,从而导致_indexOld不会等于新的cap,
-            // 而是继续向桶的新增部分移动, 导致丢失桶前部分数据.因此需要直接判断桶里的数据是否为0
-            if _bucketListOld.count == 0 {
-                _bucketListOld.buckets = nil
-                _indexOld = 0
-                break
-            }
-            
             if skip {
                 break
             }
         }
     }
-}
-
-
-// MARK: - 散列表操作
-extension AddressingHashMap: HashOperate {
     
+    private func _remove(index: Int) {
+        _bucketList.buckets![index].deleted = true
+        _bucketList.buckets![index].value = nil
+        _bucketList.buckets![index].key = nil
+        _bucketList.count -= 1
+    }
+    
+    private func _removeInOld(index: Int) {
+        _bucketListOld.buckets![index].deleted = true
+        _bucketListOld.buckets![index].value = nil
+        _bucketListOld.buckets![index].key = nil
+        _bucketListOld.count -= 1
+        
+        if _bucketListOld.count == 0 {
+            _bucketListOld.buckets = nil
+            _indexOld = 0
+        }
+    }
+    
+    /// 查找key在旧桶的位置
+    ///
+    ///  返回值可用于删除功能
+    ///
+    /// - Parameter key: 键值
+    /// - Returns: 位置(-1表示不存在)
+    private func _findInOld(key: String) -> Int {
+        // 再从旧桶找
+        guard _bucketListOld.buckets != nil else {
+            return -1
+        }
+        
+        var index = _hash(key, _bucketListOld.cap)
+        
+        
+        var flag = 0
+        while true {
+            flag += 1
+            if _bucketListOld.buckets![index].value != nil {
+                if _bucketListOld.buckets![index].key == key {
+                    return index
+                }
+            }else if _bucketListOld.buckets![index].deleted == false {
+                return -1
+            }
+            
+            
+            if flag == _bucketListOld.cap {
+                return -1
+            }
+            
+            index = _nextIndex(index, _bucketListOld.cap)
+        }
+    }
     
     /// 查找key的位置
     ///
@@ -246,23 +287,11 @@ extension AddressingHashMap: HashOperate {
         index = _hash(key, _bucketListOld.cap)
         
         
-        flag = 0
-        while true {
-            flag += 1
-            if _bucketListOld.buckets![index].value != nil {
-                if _bucketListOld.buckets![index].key == key {
-                    return (true, index)
-                }
-            }else if _bucketListOld.buckets![index].deleted == false {
-                return (true, -1)
-            }
-            
-            
-            if flag == _bucketListOld.cap {
-                return (true, -1)
-            }
-            
-            index = _nextIndex(index, _bucketListOld.cap)
+        let oldIndex = _findInOld(key: key)
+        if oldIndex == -1 {
+            return (false, -1)
+        }else {
+            return (true, oldIndex)
         }
     }
     
@@ -272,6 +301,7 @@ extension AddressingHashMap: HashOperate {
     ///   - key: 键值
     ///   - val: 元素
     private func _update(key: String, val: Any) {
+        
         if _currentLoadFactor >= _loadFactor {
             // 启动扩容操作
             // 注意, 扩容的时候如果旧桶里面的元素多于1个的话, 说明旧桶的数据还没有全部搬新桶, 这个时候把旧桶覆盖了会导致数据丢失, 就变成BUG了
@@ -301,6 +331,11 @@ extension AddressingHashMap: HashOperate {
             }
         }
     }
+}
+
+
+// MARK: - 散列表操作
+extension AddressingHashMap: HashOperate {
     
     /// 插入一个新元素, 如果元素key已经存在则替换旧值
     ///
@@ -310,7 +345,15 @@ extension AddressingHashMap: HashOperate {
     @objc public func put(key: String, val: Any?) {
         if let v = val {
             _moveOldData()
+            
+            // 先查找一下旧桶, 如果key存在于旧桶, 先把旧桶的删了..
+            let index = _findInOld(key: key)
+            if index != -1 {
+                _removeInOld(index: index)
+            }
+            
             _update(key: key, val: v)
+            
         }else {
             _ = self.remove(key)
         }
@@ -329,20 +372,9 @@ extension AddressingHashMap: HashOperate {
         }
         
         if isOld == false {
-            _bucketList.buckets![index].deleted = true
-            _bucketList.buckets![index].value = nil
-            _bucketList.buckets![index].key = nil
-            _bucketList.count -= 1
+            _remove(index: index)
         }else {
-            _bucketListOld.buckets![index].deleted = true
-            _bucketListOld.buckets![index].value = nil
-            _bucketListOld.buckets![index].key = nil
-            _bucketListOld.count -= 1
-            
-            if _bucketListOld.count == 0 {
-                _bucketListOld.buckets = nil
-                _indexOld = 0
-            }
+            _removeInOld(index: index)
         }
         
         return true
