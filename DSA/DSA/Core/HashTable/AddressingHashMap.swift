@@ -120,7 +120,7 @@ open class AddressingHashMap: NSObject {
     
     /// 当前桶容量
     private var _cap: Int {
-        return _bucketList.buckets!.count
+        return _bucketList.cap
     }
     
     /// 存放元素的数组, 将实现动态扩容策略
