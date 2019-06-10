@@ -39,6 +39,12 @@
     NSLog(@"%@", [map get:@"11"]);
     NSLog(@"%@", [map keys]);
     
+    // 链式哈希表
+    LinkedHashMap *lMap = [[LinkedHashMap alloc] initWithCap:1];
+    for (NSInteger i = 0; i < 100; i++) {
+        [lMap putWithKey:[NSString stringWithFormat:@"k%ld", (long)i] val:@(i)];
+    }
+    
     
     // OC调用第三方库Swift类, 其中Any类型映射到OC中为id, 所以只能保存对象类型了.
     SinglyLinkedNode *node1 = [[SinglyLinkedNode alloc] initWithVal:@(1)];

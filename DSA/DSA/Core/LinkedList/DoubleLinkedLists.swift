@@ -12,7 +12,7 @@ import Foundation
 open class DoubleLinkedNode: NSObject {
     
     @objc open var value: Any!
-    @objc open var perv: DoubleLinkedNode?
+    @objc open weak var prev: DoubleLinkedNode?
     @objc open var next: DoubleLinkedNode?
     
     @objc public override init() {
@@ -31,9 +31,9 @@ open class DoubleLinkedNode: NSObject {
     ///   - node: 新节点
     @objc static public func InsertNodeAfter(target: DoubleLinkedNode, node: DoubleLinkedNode) {
         // 这里如果target.next为nil, 可以正常运行, 所以不需要额外判断其是否为nil
-        target.next?.perv = node
+        target.next?.prev = node
         node.next = target.next
-        node.perv = target
+        node.prev = target
         target.next = node
     }
     
@@ -42,10 +42,10 @@ open class DoubleLinkedNode: NSObject {
     ///
     /// - Parameter target: 目标节点
     @objc static public func DeleteNode(target: DoubleLinkedNode) {
-        target.next?.perv = target.perv
-        target.perv?.next = target.next
+        target.next?.prev = target.prev
+        target.prev?.next = target.next
         
-        target.perv = nil
+        target.prev = nil
         target.next = nil
     }
 }
@@ -82,7 +82,7 @@ extension DoubleLinkedLists {
         
         while p != self.head {
             listString2 = "<--\(String(describing: p!.value!))" + listString2
-            p = p?.perv
+            p = p?.prev
         }
         listString2 = "head" + listString2
         

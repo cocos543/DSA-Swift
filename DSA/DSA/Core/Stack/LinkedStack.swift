@@ -81,7 +81,7 @@ extension LinkedStack {
         
         
         let node = self._topNode
-        self._topNode = node?.perv
+        self._topNode = node?.prev
         DoubleLinkedNode.DeleteNode(target: node!)
         
         self.count -= 1

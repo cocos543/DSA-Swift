@@ -40,7 +40,7 @@ class LinkedHashMapTests: XCTestCase {
     func testHashMapDynamicExtension() {
         var i = 1
         let total = 1000000
-        var map = LinkedHashMap(cap: 1)
+        var map: LinkedHashMap = LinkedHashMap(cap: 1)
         self.measure {
             map = LinkedHashMap(cap: i)
             for i in 1...total {

@@ -2,6 +2,18 @@
 //  ListsHashMap.swift
 //  DSA
 //
+// 性能分析:
+//  插入100万条数据:
+//  Test Case '-[DSATests.LinkedHashMapTests testHashMapDynamicExtension]' measured [Time, seconds] average: 10.397
+//
+//  取值100万个数据:
+//  Test Case '-[DSATests.LinkedHashMapTests testHashMapGet]' measured [Time, seconds] average: 2.965
+//
+//  单个随机值key插入和取出时间:
+//  随机插入一个值: values: values: [0.000054, 0.000012, 0.000008, 0.000008, 0.000008, 0.000008, 0.000008, 0.000008, 0.000008, 0.000007]
+//
+//  随机取出一个值: values: [0.000195, 0.000090, 0.000022, 0.000048, 0.000018, 0.000012, 0.000006, 0.000011, 0.000009, 0.000012]
+//
 //  Created by Cocos on 2019/6/4.
 //  Copyright © 2019 Cocos. All rights reserved.
 //
@@ -142,10 +154,10 @@ open class LinkedHashMap: NSObject {
             var skip = false
             // 一次移动一个槽的链表
             if _bucketListOld.buckets![_indexOld] != nil {
-                var node = _bucketListOld.buckets![_indexOld]
-                while node != nil {
+                while _bucketListOld.buckets![_indexOld] != nil {
+                    let node = _bucketListOld.buckets![_indexOld]
                     _update(key: node!.key, val: node!.value)
-                    node = node!.next as? Element
+                    _bucketListOld.buckets![_indexOld] = node!.next as? Element
                     _bucketListOld.count -= 1
                 }
                 skip = true
@@ -180,7 +192,7 @@ open class LinkedHashMap: NSObject {
             
             // 如果原本槽里不止一个节点, 则下一个节点的前驱节点设置为nil
             if _bucketList.buckets?[index] != nil {
-                _bucketList.buckets?[index]!.perv = nil
+                _bucketList.buckets?[index]!.prev = nil
             }
         } else {
             Element.DeleteNode(target: element)
@@ -198,7 +210,7 @@ open class LinkedHashMap: NSObject {
             
             // 如果原本槽里不止一个节点, 则下一个节点的前驱节点设置为nil
             if _bucketListOld.buckets?[index] != nil {
-                _bucketListOld.buckets?[index]!.perv = nil
+                _bucketListOld.buckets?[index]!.prev = nil
             }
         } else {
             Element.DeleteNode(target: element)
@@ -262,10 +274,8 @@ open class LinkedHashMap: NSObject {
         
         // 动态扩容
         if _currentLoadFactor >= LinkedHashMap._loadFactor {
-            
             _bucketListOld = _bucketList
             _bucketList =  BucketList(solts: _slots*2)
-
         }
         
         let index = _hash(key, _slots)
@@ -279,13 +289,10 @@ open class LinkedHashMap: NSObject {
             _bucketList.buckets![index] = ele
         }
         _bucketList.count += 1
-        
-        
     }
 }
 
 extension LinkedHashMap: HashOperate {
-    
     
     @objc public func put(key: String, val: Any?) {
         if let v = val {
