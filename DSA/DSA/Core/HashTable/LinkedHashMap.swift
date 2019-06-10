@@ -25,11 +25,9 @@ private struct BucketList {
     /// 桶里的元素数量
     var count: Int = 0
     
-    var solts: Int {
-        return (buckets?.count ?? 0) * 10
-    }
+    var solts: Int = 0
     
-    var buckets: [DoubleLinkedLists?]?
+    var buckets: [Element?]?
     
     
     /// 传入false, 表示不需要初始化桶数组
@@ -37,17 +35,20 @@ private struct BucketList {
     /// - Parameter b: 是否需要桶数据
     init(_ b: Bool) {
         if b {
-            buckets = [DoubleLinkedLists]()
+            self.solts = DEFAULT_INIT_SOLTS
+            buckets = [Element]()
             _fillBucket(&buckets!, DEFAULT_INIT_SOLTS)
         }
     }
     
     init(solts: Int) {
-        buckets = [DoubleLinkedLists]()
+        self.solts = solts
+        
+        buckets = [Element]()
         _fillBucket(&buckets!, solts)
     }
     
-    private func _fillBucket(_ b:inout [DoubleLinkedLists?], _ slots: Int) {
+    private func _fillBucket(_ b:inout [Element?], _ slots: Int) {
         for _ in 0 ..< slots {
             b.append(nil)
         }
@@ -71,7 +72,7 @@ open class LinkedHashMap: NSObject {
         return _bucketList.count + _bucketListOld.count
     }
     
-    /// 装载因子, 假设key都均匀分布在整个数组上, 这里拉链理想最大长度为10个, 则装载因子为 10*n /n=10
+    /// 装载因子, 假设key都均匀分布在整个数组上, 这里拉链理想最大长度为10个, 则装载因子为 (10*n)/n=10
     /// n是散列表容量
     static private var _loadFactor: Double {
         return 10
@@ -105,14 +106,14 @@ open class LinkedHashMap: NSObject {
     
     @objc public init(cap: Int) {
         var solts = 0
+        // 这里简单处理用户自定义容量了.
         if cap <= DEFAULT_INIT_CAP {
-            solts = DEFAULT_INIT_CAP
+            solts = DEFAULT_INIT_SOLTS
         }else {
             // 总容量除以每条链理想最大数目,就是槽位数量
-            solts = DEFAULT_INIT_CAP + cap / Int(LinkedHashMap._loadFactor)
+            solts = DEFAULT_INIT_SOLTS + cap / Int(LinkedHashMap._loadFactor)
         }
         
-        // 这里简单处理用户自定义容量了.
         _bucketList = BucketList(solts: solts)
         _bucketListOld = BucketList(false)
         super.init()
@@ -137,19 +138,91 @@ open class LinkedHashMap: NSObject {
     
     /// 根据需要移动旧数据
     private func _moveOldData() {
-        
+        while _bucketListOld.buckets != nil {
+            var skip = false
+            // 一次移动一个槽的链表
+            if _bucketListOld.buckets![_indexOld] != nil {
+                var node = _bucketListOld.buckets![_indexOld]
+                while node != nil {
+                    _update(key: node!.key, val: node!.value)
+                    node = node!.next as? Element
+                    _bucketListOld.count -= 1
+                }
+                skip = true
+            }
+            
+            // 整条链都搬移后, 把槽位设置为nil
+            if skip {
+                _bucketListOld.buckets![_indexOld] = nil
+                
+                if _bucketListOld.count == 0 {
+                    _bucketListOld.buckets = nil
+                    _bucketListOld.solts = 0
+                    _indexOld = 0
+                    break
+                }
+            }
+            
+            _indexOld = _nextIndex(_indexOld, _bucketListOld.solts)
+            
+            if skip {
+                break
+            }
+        }
     }
     
-    private func _remove(index: Int) {
+    private func _remove(element: Element) {
+        let index = _hash(element.key, _slots)
         
+        // 如果要删除的元素是槽的第一个, 则直接把后一个节点放入槽中
+        if _bucketList.buckets?[index] === element {
+            _bucketList.buckets?[index] = element.next as? Element
+            
+            // 如果原本槽里不止一个节点, 则下一个节点的前驱节点设置为nil
+            if _bucketList.buckets?[index] != nil {
+                _bucketList.buckets?[index]!.perv = nil
+            }
+        } else {
+            Element.DeleteNode(target: element)
+        }
+        
+        _bucketList.count -= 1
     }
     
-    private func _removeInOld(index: Int) {
+    private func _removeInOld(element: Element) {
+        let index = _hash(element.key, _bucketListOld.solts)
         
+        // 如果要删除的元素是槽的第一个, 则直接把后一个节点放入槽中
+        if _bucketListOld.buckets?[index] === element {
+            _bucketListOld.buckets?[index] = element.next as? Element
+            
+            // 如果原本槽里不止一个节点, 则下一个节点的前驱节点设置为nil
+            if _bucketListOld.buckets?[index] != nil {
+                _bucketListOld.buckets?[index]!.perv = nil
+            }
+        } else {
+            Element.DeleteNode(target: element)
+        }
+        
+        _bucketListOld.count -= 1
     }
     
-    private func _findInOld(key: String) -> Int {
-        return -1
+    private func _findInOld(key: String) -> Element? {
+        // 再从旧桶找
+        guard _bucketListOld.buckets != nil else {
+            return nil
+        }
+        
+        let index = _hash(key, _bucketListOld.solts)
+        var node = _bucketListOld.buckets?[index]
+        while node != nil {
+            if node!.key == key {
+                return node
+            }
+            
+            node = node!.next as? Element
+        }
+        return nil
     }
     
     /// 查找key的位置
@@ -158,8 +231,25 @@ open class LinkedHashMap: NSObject {
     ///
     /// - Parameter key: 键值
     /// - Returns: 是否在旧桶, 位置(-1表示不存在)
-    private func _find(key: String) -> (Bool, Int) {
-        return (false, -1)
+    private func _find(key: String) -> (Bool, Element?) {
+        // 先查找新桶
+        let index = _hash(key, _slots)
+        
+        var node = _bucketList.buckets?[index]
+        while node != nil {
+            if node!.key == key {
+                return (false, node)
+            }
+            node = node!.next as? Element
+        }
+        
+        // 再查找旧桶
+        let ele = _findInOld(key: key)
+        if ele != nil {
+            return (true, ele)
+        }
+        
+        return (false, nil)
         
     }
     
@@ -175,15 +265,19 @@ open class LinkedHashMap: NSObject {
             
             _bucketListOld = _bucketList
             _bucketList =  BucketList(solts: _slots*2)
-            
-            // 每次扩容之后顺便搬走一个数据, 避免旧数据没搬完就再次触发扩容导致数据丢失
-            _moveOldData()
+
         }
         
         let index = _hash(key, _slots)
-        
-        // 把元素插入到链头即可
-        _bucketList.buckets![index]?.InsertNodeHead(node: Element(key: key, val: val))
+
+        let ele = Element(key: key, val: val)
+        // 如果槽位已有节点,则直接插入
+        if _bucketList.buckets![index] != nil {
+            Element.InsertNodeAfter(target: _bucketList.buckets![index]!, node: ele)
+        }else {
+            // 槽位没有节点, 新创建
+            _bucketList.buckets![index] = ele
+        }
         _bucketList.count += 1
         
         
@@ -198,9 +292,9 @@ extension LinkedHashMap: HashOperate {
             _moveOldData()
             
             // 先查找一下旧桶, 如果key存在于旧桶, 先把旧桶的删了..
-            let index = _findInOld(key: key)
-            if index != -1 {
-                _removeInOld(index: index)
+            let ele = _findInOld(key: key)
+            if ele != nil {
+                _removeInOld(element: ele!)
             }
             
             _update(key: key, val: v)
@@ -210,31 +304,46 @@ extension LinkedHashMap: HashOperate {
     }
     
     @objc public func get(_ key: String) -> Any? {
-        let (isOld, index) = _find(key: key)
-        if index == -1 {
-            return nil
-        }
+        let (_, ele) = _find(key: key)
         
-        return nil
+        return ele?.value
     }
     
     @objc public func remove(_ key: String) -> Bool {
-        let (isOld, index) = _find(key: key)
+        let (isOld, ele) = _find(key: key)
         
-        if index == -1 {
+        guard let e = ele else {
             return false
         }
         
         if isOld == false {
-            _remove(index: index)
+            _remove(element: e)
         }else {
-            _removeInOld(index: index)
+            _removeInOld(element: e)
         }
+        
         return true
     }
     
     @objc public func keys() -> [String] {
-        return []
+        var keys = [String]()
+        for var ele in _bucketList.buckets! {
+            while ele != nil {
+                keys.append(ele!.key)
+                ele = ele!.next as? Element
+            }
+        }
+        
+        if _bucketListOld.buckets != nil {
+            for var ele in _bucketListOld.buckets! {
+                while ele != nil {
+                    keys.append(ele!.key)
+                    ele = ele!.next as? Element
+                }
+            }
+        }
+        
+        return keys
     }
     
     @objc public subscript(key: String) -> Any? {

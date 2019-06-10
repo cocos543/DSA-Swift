@@ -139,6 +139,10 @@ open class AddressingHashMap: NSObject {
     }
     
     @objc public init(cap: Int) {
+        guard cap > 0 else {
+            fatalError("need: cap > 0")
+        }
+        
         _bucketList = BucketList(cap: cap)
         _bucketListOld = BucketList(false)
     }
@@ -165,7 +169,7 @@ open class AddressingHashMap: NSObject {
     /// 根据需要移动旧数据
     private func _moveOldData() {
         // 检查是否需要搬移旧桶数据
-        // 这里要避免产生桶的copy
+        // 直接判断是否为nil可以避免产生桶的copy
         while _bucketListOld.buckets != nil {
             var skip = false
             if let key  = _bucketListOld.buckets![_indexOld].key {
@@ -280,13 +284,6 @@ open class AddressingHashMap: NSObject {
         }
         
         // 再从旧桶找
-        guard _bucketListOld.buckets != nil else {
-            return (false, -1)
-        }
-        
-        index = _hash(key, _bucketListOld.cap)
-        
-        
         let oldIndex = _findInOld(key: key)
         if oldIndex == -1 {
             return (false, -1)
