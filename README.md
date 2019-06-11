@@ -128,7 +128,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 ## [树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees)
 
-* [二叉树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/BinaryTree.swif)
+* [二叉树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/BinaryTree.swift) ✓
 
 1. 动态生成满二叉树
 2. 可视化打印满二叉树(中序遍历--非递归)
