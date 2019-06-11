@@ -133,4 +133,11 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 1. 动态生成满二叉树
 2. 可视化打印满二叉树(中序遍历--非递归)
 3. 二叉树前中后序遍历(递归)
+4. 检测二叉树深度
+
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinaryTreePrint.png)
+
+* [二叉查找树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/BinarySearchTree.swift)
+1. 查找, 插入, 删除 (假设元素不重复)
+
+* [红黑树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees)

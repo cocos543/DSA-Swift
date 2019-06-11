@@ -30,24 +30,6 @@ open class BinaryTreeNode: NSObject {
 // MARK: - Debug
 extension BinaryTreeNode {
     
-    
-    /// 检测树最深层树
-    ///
-    /// - Parameter root: 根节点
-    /// - Returns: 层数
-    private func _detectLevel(root: BinaryTreeNode? ) -> Int {
-        guard let root = root else {
-            return 0
-        }
-        
-        var ll = 0, lr = 0
-        
-        ll = _detectLevel(root: root.lNode)
-        lr = _detectLevel(root: root.rNode)
-        
-        return max(ll, lr) + 1
-    }
-    
     /// 可视化二叉树(中序遍历)
     ///
     ///  算法思路:
@@ -57,7 +39,7 @@ extension BinaryTreeNode {
     open override var description: String {
         var retString = ""
         // 先取得树的最深层数
-        let maxLevel = _detectLevel(root: self)
+        let maxLevel = BinaryTree.DetectLevel(root: self)
         
         // 通过最深层数, 我们可以知道当二叉树为满二叉树时节点最多, 数量是 N = 2^L - 1
         let N = NSDecimalNumber(decimal: pow(2, maxLevel) - 1).intValue
@@ -184,6 +166,23 @@ open class BinaryTree: NSObject {
         }
         
         return root
+    }
+    
+    /// 检测树层数
+    ///
+    /// - Parameter root: 根节点
+    /// - Returns: 层数
+    @objc public static func DetectLevel(root: BinaryTreeNode?) -> Int {
+        guard let root = root else {
+            return 0
+        }
+        
+        var ll = 0, lr = 0
+        
+        ll = DetectLevel(root: root.lNode)
+        lr = DetectLevel(root: root.rNode)
+        
+        return max(ll, lr) + 1
     }
 }
 
