@@ -127,10 +127,11 @@ extension BinarySearchTree {
                 minNode = minNode.lNode!
             }
             
+            // 这是一个技巧
             // 将右子树最小节点的值直接赋值到即将被删除的节点的位置, 这样比整个节点替换过去要方便, 因为整个节点的替换需要类似链表一样插入
             p!.value = minNode.value
             
-            // 最小节点需要被删除, 所以直接将p指向最小节点即可
+            // 最小节点需要被删除, 所以直接将p指向最小节点即可, 后续代码会对p进行判断确定删除逻辑
             p = minNode
             pf = fMinNode
         }
@@ -154,6 +155,58 @@ extension BinarySearchTree {
             pf!.rNode = loanerNode
         }
         
+        return root
+    }
+}
+
+
+
+/// 红黑树的节点
+class RBTreeNode: BinaryTreeNode {
+    
+}
+
+// MARK: - 红黑树
+extension BinarySearchTree {
+    ///
+    /// 红黑树的实现有点像玩魔方, 步骤和方法都是固定的, 我们玩魔方的时候都没有去理解为什么是这个步骤, 所以实现红黑树的时候也不要去理解了.
+    /// 只能说, 很佩服天才的大脑, 这样的东西都能想出来...
+    ///
+    
+    
+    /// 查找
+    ///
+    /// - Parameters:
+    ///   - root: 根节点
+    ///   - val: 删除的值
+    ///   - cmp: 大小比较函数
+    /// - Returns: 根节点
+    private func RBTreeFind(root: RBTreeNode, val: Any, cmp: CompareF2) -> RBTreeNode {
+        return root
+    }
+    
+    /// 节点插入
+    ///
+    /// - Parameters:
+    ///   - root: 根节点
+    ///   - val: 删除的值
+    ///   - cmp: 大小比较函数
+    /// - Returns: 根节点
+    private func RBTreeInsert(root: RBTreeNode, val: Any, cmp: CompareF2) -> RBTreeNode {
+        /// 等待实现
+        return root
+    }
+    
+    
+    /// 节点删除
+    ///
+    /// - Parameters:
+    ///   - root: 根节点
+    ///   - val: 删除的值
+    ///   - cmp: 大小比较函数
+    /// - Returns: 根节点
+    private func RBTreeDelete(root: RBTreeNode, val: Any, cmp: CompareF2) -> RBTreeNode? {
+        /// 等待实现
         return root
     }
 }
