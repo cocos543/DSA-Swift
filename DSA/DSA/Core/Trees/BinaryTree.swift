@@ -242,4 +242,40 @@ extension BinaryTree {
         
         return arr
     }
+    
+    
+    /// 层序遍历
+    ///
+    /// 算法思路: 层序遍历比较简单, 用队列把遇到的节点的子节点放进去, 再依次取出来即可
+    ///
+    /// - Parameter root: 根节点
+    /// - Returns: 结果
+    @objc public static func SequenceTraversal(root: BinaryTreeNode) -> [Any] {
+        var arr = [Any]()
+        
+        // 先取得树的最深层数
+        let maxLevel = BinaryTree.DetectLevel(root: root)
+        
+        // 通过最深层数, 我们可以知道当二叉树为满二叉树时节点最多, 数量是 N = 2^L - 1
+        let N = NSDecimalNumber(decimal: pow(2, maxLevel) - 1).intValue
+        
+        // 把整个树都放入队列中, 如果子节点为nil, 则放入一个值为-1的元素进队列.
+        let curQueue = Queue(cap: N)
+    
+        
+        _ = curQueue.EnQueue(ele: root)
+        
+        while let node = curQueue.DeQueue() as? BinaryTreeNode {
+            arr.append(node.value)
+            
+            if node.lNode != nil {
+                _ = curQueue.EnQueue(ele: node.lNode!)
+            }
+            if node.rNode != nil {
+                _ = curQueue.EnQueue(ele: node.rNode!)
+            }
+        }
+
+        return arr
+    }
 }

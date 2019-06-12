@@ -48,7 +48,7 @@ extension BinarySearchTree {
     
     /// 插入新节点(假设元素不重复)
     ///
-    ///  如果元素重复, 需要扩展节点, 提供一个next指针指向重复的节点, 也就是扩展成链表.
+    ///  如果元素重复, 需要扩展节点, 提供一个next指针指向重复的节点, 也就是单个节点扩展成链表.
     ///  一般都不会直接使用二叉查找树这种数据结构(一般使用红黑树), 所以这里就简单实现基本功能即可.
     ///
     /// - Parameters:
@@ -82,14 +82,15 @@ extension BinarySearchTree {
     ///
     /// 算法思路: 删除节点分3种情况处理
     /// 1. 目标节点没有子节点, 直接删除
-    /// 2. 目标节点只有一个节点, 指向父节点的指针直接指向子节点即可
+    /// 2. 目标节点只有一个子节点, 指向目标节点的指针直接指向子节点即可
     /// 3. 目标有左右子节点, 找到右子树的最小值, 替换到目标位置即可
     ///
     /// - Parameters:
     ///   - root: 根节点
     ///   - val: 目标值
     ///   - cmp: 等值比较函数
-    @objc public static func Delete(root: BinaryTreeNode, val: Any, cmp: CompareF2) {
+    /// - Returns: 树根节点
+    @objc public static func Delete(root: BinaryTreeNode, val: Any, cmp: CompareF2) -> BinaryTreeNode? {
         // 先找到目标节点的父节点
         var p: BinaryTreeNode? = root
         
@@ -108,24 +109,51 @@ extension BinarySearchTree {
         
         // 找不到目标,直接返回
         if p == nil {
-            return
+            return root
         }
+        
+        
+        // loanerNode 节点用于指向要被替换到删除位置的节点
+        var loanerNode: BinaryTreeNode?
         
         // 目标有左右节点
-        
-        // 目标只有一个节点
-        
-        // 目标没有左右节点
-        if p!.lNode == nil && p!.rNode == nil {
-            if pf!.lNode == p {
-                pf!.lNode = nil
-            }else {
-                pf!.rNode = nil
+        if p!.lNode != nil && p!.rNode != nil {
+            // 用于指向右子树最小节点的父节点(father)
+            var fMinNode = p!
+            var minNode = p!.rNode!
+            
+            while minNode.lNode != nil {
+                fMinNode = minNode
+                minNode = minNode.lNode!
             }
+            
+            // 将右子树最小节点的值直接赋值到即将被删除的节点的位置, 这样比整个节点替换过去要方便, 因为整个节点的替换需要类似链表一样插入
+            p!.value = minNode.value
+            
+            // 最小节点需要被删除, 所以直接将p指向最小节点即可
+            p = minNode
+            pf = fMinNode
+        }
+        
+        // 目标只有一个子节点, 或者没有子节点
+        if p!.lNode != nil {
+            loanerNode = p!.lNode
+        }else if p!.rNode != nil {
+            loanerNode = p!.rNode
+        }else {
+            loanerNode = nil
         }
         
         
+        // 如果目标是根节点, 则loanerNode会成为新的根节点, 如果loanerNode为空, 则意味着整棵树都删光了.
+        if pf == nil {
+            return loanerNode
+        }else if pf!.lNode == p {
+            pf!.lNode = loanerNode
+        }else {
+            pf!.rNode = loanerNode
+        }
         
-        
+        return root
     }
 }

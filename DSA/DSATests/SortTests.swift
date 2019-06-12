@@ -88,5 +88,17 @@ class SortTests: XCTestCase {
     
     func testCountingSort() {
         var arr = [11,8,3,9,7,1,2,5]
+        
+        arr = Sort.CountingSort(arr: arr) {
+            if ($0 as! Int) == ($1 as! Int) {
+                return CompareF2Result.equal
+            }else if ($0 as! Int) > ($1 as! Int) {
+                return CompareF2Result.greater
+            }else {
+                return CompareF2Result.less
+            }
+        }
+        
+        XCTAssertEqual("[1, 2, 3, 5, 7, 8, 9, 11]", "\(arr)")
     }
 }
