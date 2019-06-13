@@ -151,6 +151,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [二叉查找树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/BinarySearchTree.swift)
 
 1. 查找, 插入, 删除 (假设元素不重复) ✓
+
 时间复杂度O(logn), 空间复杂度O(1)
 
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinarySearchTree.jpg)
@@ -160,12 +161,15 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [堆](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/Heap.swift) ✓
 
 1. 插入数据 ✓
+
 时间复杂度O(logn), 空间复杂度O(1)
 
-2. 删除堆顶 ✓   
+2. 删除堆顶 ✓
+
 时间复杂度O(logn), 空间复杂度O(1)
 
 3. 堆排序 ✓
+
 时间复杂度O(n*logn), 空间复杂度O(1)
 
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapInsert.jpg)
