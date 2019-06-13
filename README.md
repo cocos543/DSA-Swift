@@ -134,11 +134,11 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 * [二叉树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/BinaryTree.swift) ✓
 
-1. 动态生成满二叉树
-2. 可视化打印满二叉树
-3. 二叉树前中后序遍历(递归)
-4. 层序遍历
-5. 检测二叉树深度
+1. 动态生成满二叉树 ✓
+2. 可视化打印满二叉树 ✓
+3. 二叉树前中后序遍历(递归) ✓
+4. 层序遍历 ✓
+5. 检测二叉树深度 ✓
 
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinaryTreePrint.png)
 
@@ -149,8 +149,8 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 * [红黑树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees)
 
-* [堆](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/Heap.swift)
+* [堆](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/Heap.swift) ✓
 
-1. 插入数据
-2. 删除堆顶
+1. 插入数据 ✓
+2. 删除堆顶 ✓
 3. 堆排序
