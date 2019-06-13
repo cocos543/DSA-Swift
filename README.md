@@ -145,7 +145,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [二叉查找树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/BinarySearchTree.swift)
 
 1. 查找, 插入, 删除 (假设元素不重复) ✓
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinarySearchTree.png)
+![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinarySearchTree.jpg)
 
 * [红黑树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees)
 
