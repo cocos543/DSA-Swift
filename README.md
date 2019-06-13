@@ -140,7 +140,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 4. 层序遍历 ✓
 5. 检测二叉树深度 ✓
 
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinaryTreePrint.png)
+![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinaryTreePrint.jpg)
 
 * [二叉查找树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/BinarySearchTree.swift)
 
