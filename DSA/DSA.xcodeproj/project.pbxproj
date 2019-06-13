@@ -49,6 +49,7 @@
 		EDB18BFC22ADF3E500EACADE /* LinkedHashMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB18BFB22ADF3E500EACADE /* LinkedHashMapTests.swift */; };
 		EDCA206922A4F22400A7ADB3 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA206822A4F22400A7ADB3 /* Search.swift */; };
 		EDCA206B22A4FC0400A7ADB3 /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA206A22A4FC0400A7ADB3 /* SearchTests.swift */; };
+		EDE0991422B2473B00BE1EE6 /* HeapSort.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EDE0991322B2473B00BE1EE6 /* HeapSort.jpg */; };
 		EDE1572222A0BB4900DB4D69 /* SortQuick.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1572122A0BB4900DB4D69 /* SortQuick.swift */; };
 		EDE1572422A0BC1200DB4D69 /* SortMerging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1572322A0BC1200DB4D69 /* SortMerging.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +110,7 @@
 		EDB18BFB22ADF3E500EACADE /* LinkedHashMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedHashMapTests.swift; sourceTree = "<group>"; };
 		EDCA206822A4F22400A7ADB3 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		EDCA206A22A4FC0400A7ADB3 /* SearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTests.swift; sourceTree = "<group>"; };
+		EDE0991322B2473B00BE1EE6 /* HeapSort.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HeapSort.jpg; sourceTree = "<group>"; };
 		EDE1572122A0BB4900DB4D69 /* SortQuick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortQuick.swift; sourceTree = "<group>"; };
 		EDE1572322A0BC1200DB4D69 /* SortMerging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMerging.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +240,7 @@
 		ED50B48322952DF700534ECA /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				EDE0991322B2473B00BE1EE6 /* HeapSort.jpg */,
 				ED6DC73D22B1EFD0000CB03E /* HeapDeleteTop.jpg */,
 				ED6DC73E22B1EFD0000CB03E /* HeapInsert.jpg */,
 				ED72E13722B0A11800285D6B /* BinarySearchTree.jpg */,
@@ -395,6 +398,7 @@
 				ED72E13822B0A11800285D6B /* BinarySearchTree.jpg in Resources */,
 				ED33A64B229FDFAA00E5035E /* SelectionSort.jpg in Resources */,
 				ED50B48A22952E1F00534ECA /* StraightInsertionSort.jpg in Resources */,
+				EDE0991422B2473B00BE1EE6 /* HeapSort.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

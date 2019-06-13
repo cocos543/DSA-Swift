@@ -49,4 +49,16 @@ class HeapTests: XCTestCase {
         XCTAssertEqual(true, heap.DeleteTop(cmp: cmp) == nil)
         
     }
+    
+    func testHeapSort() {
+        // 建堆
+        var arr = [13,33,17,16,6,1,7,15,9,5,21,8,2]
+        arr = Heap.Build(arr: arr, cmp: cmp) as! [Int]
+        XCTAssertEqual("[0, 33, 21, 17, 16, 13, 8, 7, 15, 9, 5, 6, 1, 2]", "\(arr)")
+        
+        arr = [13,33,17,16,6,1,7,15,9,5,21,8,2]
+        arr = Heap.Sort(arr: arr, cmp: cmp) as! [Int]
+        XCTAssertEqual("[33, 21, 17, 16, 15, 13, 9, 8, 7, 6, 5, 2, 1]", "\(arr)")
+        
+    }
 }

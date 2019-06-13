@@ -20,7 +20,7 @@ open class BinarySearchTree: NSObject {
 // MARK: - 二叉查找树节点的查找, 插入, 删除
 extension BinarySearchTree {
     
-    /// 查找
+    /// 查找, 时间复杂度O(logn)
     ///
     /// - Parameters:
     ///   - root: 根节点
@@ -46,7 +46,7 @@ extension BinarySearchTree {
     }
     
     
-    /// 插入新节点(假设元素不重复)
+    /// 插入新节点(假设元素不重复), 时间复杂度O(logn)
     ///
     ///  如果元素重复, 需要扩展节点, 提供一个next指针指向重复的节点, 也就是单个节点扩展成链表.
     ///  一般都不会直接使用二叉查找树这种数据结构(一般使用红黑树), 所以这里就简单实现基本功能即可.
@@ -78,7 +78,7 @@ extension BinarySearchTree {
     }
     
     
-    /// 删除节点
+    /// 删除节点, 时间复杂度O(logn)
     ///
     /// 算法思路: 删除节点分3种情况处理
     /// 1. 目标节点没有子节点, 直接删除

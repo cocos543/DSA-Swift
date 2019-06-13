@@ -4,7 +4,13 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 安装方法
 
     下载代码, 打开 DSA.xcworkspace , 运行AlgorithmDemo target即可, 或者运行DSA_SwiftTests中的测试用例.
-    其中DSA工程编译之后会生成 DSA.framework, 可独立使用
+    其中DSA工程编译之后会生成 DSA.framework, 可独立使用.
+    
+说明
+
+    1. 复杂度分析时, 由于编程语言的差异, 当兼容OC时, Swift无法使用inout关键字, 导致数组会产生copy, 和算法无关, 空间复杂度分析时忽略该因素
+    2. 由于要兼容OC, 无法使用Swift的泛型编程, 因此库中传入的数据均为Any类型, OC对应类型为id
+    3. 代码持续更新中, bug持续修复中...
 
 # 实现必修的数据结构与算法
 
@@ -145,6 +151,8 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [二叉查找树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/BinarySearchTree.swift)
 
 1. 查找, 插入, 删除 (假设元素不重复) ✓
+时间复杂度O(logn), 空间复杂度O(1)
+
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinarySearchTree.jpg)
 
 * [红黑树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees)
@@ -152,9 +160,14 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [堆](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/Heap.swift) ✓
 
 1. 插入数据 ✓
+时间复杂度O(logn), 空间复杂度O(1)
+
 2. 删除堆顶 ✓   
-3. 堆排序
+时间复杂度O(logn), 空间复杂度O(1)
 
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapInsert.jpg) ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapDeleteTop.jpg)
+3. 堆排序 ✓
+时间复杂度O(n*logn), 空间复杂度O(1)
 
-
+![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapInsert.jpg)
+![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapDeleteTop.jpg)
+![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapSort.jpg)
