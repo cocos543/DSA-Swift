@@ -35,6 +35,8 @@
 		ED6A92D522AF950B00912DC0 /* BinaryTreePrint.png in Resources */ = {isa = PBXBuildFile; fileRef = ED6A92D422AF950B00912DC0 /* BinaryTreePrint.png */; };
 		ED6A92D722AFA8F300912DC0 /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6A92D622AFA8F300912DC0 /* BinarySearchTree.swift */; };
 		ED6DC73C22B1DAC3000CB03E /* HeapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6DC73B22B1DAC3000CB03E /* HeapTests.swift */; };
+		ED6DC73F22B1EFD0000CB03E /* HeapDeleteTop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED6DC73D22B1EFD0000CB03E /* HeapDeleteTop.jpg */; };
+		ED6DC74022B1EFD0000CB03E /* HeapInsert.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED6DC73E22B1EFD0000CB03E /* HeapInsert.jpg */; };
 		ED6F06D522A7A463001DF04A /* AddressingHashMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F06D422A7A463001DF04A /* AddressingHashMapTests.swift */; };
 		ED72E13822B0A11800285D6B /* BinarySearchTree.png in Resources */ = {isa = PBXBuildFile; fileRef = ED72E13722B0A11800285D6B /* BinarySearchTree.png */; };
 		ED86D073229E19D300BCECEC /* DoubleLinkedListsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D072229E19D300BCECEC /* DoubleLinkedListsTests.swift */; };
@@ -93,6 +95,8 @@
 		ED6A92D422AF950B00912DC0 /* BinaryTreePrint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BinaryTreePrint.png; sourceTree = "<group>"; };
 		ED6A92D622AFA8F300912DC0 /* BinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
 		ED6DC73B22B1DAC3000CB03E /* HeapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapTests.swift; sourceTree = "<group>"; };
+		ED6DC73D22B1EFD0000CB03E /* HeapDeleteTop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HeapDeleteTop.jpg; sourceTree = "<group>"; };
+		ED6DC73E22B1EFD0000CB03E /* HeapInsert.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HeapInsert.jpg; sourceTree = "<group>"; };
 		ED6F06D422A7A463001DF04A /* AddressingHashMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressingHashMapTests.swift; sourceTree = "<group>"; };
 		ED72E13722B0A11800285D6B /* BinarySearchTree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BinarySearchTree.png; sourceTree = "<group>"; };
 		ED86D072229E19D300BCECEC /* DoubleLinkedListsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLinkedListsTests.swift; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 		ED50B48322952DF700534ECA /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				ED6DC73D22B1EFD0000CB03E /* HeapDeleteTop.jpg */,
+				ED6DC73E22B1EFD0000CB03E /* HeapInsert.jpg */,
 				ED72E13722B0A11800285D6B /* BinarySearchTree.png */,
 				ED6A92D422AF950B00912DC0 /* BinaryTreePrint.png */,
 				ED2482F222A8F13700D5AC24 /* AddressingHashTable.jpg */,
@@ -377,7 +383,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED50B48B22952E1F00534ECA /* BinarySearch.jpg in Resources */,
+				ED6DC74022B1EFD0000CB03E /* HeapInsert.jpg in Resources */,
 				ED2482F322A8F13700D5AC24 /* AddressingHashTable.jpg in Resources */,
+				ED6DC73F22B1EFD0000CB03E /* HeapDeleteTop.jpg in Resources */,
 				ED6A92D522AF950B00912DC0 /* BinaryTreePrint.png in Resources */,
 				ED50B48F22952E1F00534ECA /* BubbleSort.jpg in Resources */,
 				ED50B48D22952E1F00534ECA /* QuickSortPartition.jpg in Resources */,

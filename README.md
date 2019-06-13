@@ -152,5 +152,9 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [堆](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/Heap.swift) ✓
 
 1. 插入数据 ✓
-2. 删除堆顶 ✓
+2. 删除堆顶 ✓   
 3. 堆排序
+
+![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapInsert.jpg) ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapDeleteTop.jpg)
+
+
