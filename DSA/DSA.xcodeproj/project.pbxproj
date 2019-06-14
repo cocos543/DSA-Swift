@@ -30,6 +30,7 @@
 		ED50B48F22952E1F00534ECA /* BubbleSort.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED50B48922952E1F00534ECA /* BubbleSort.jpg */; };
 		ED61E1AA229B7E0400DC61A6 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61E1A9229B7E0400DC61A6 /* Types.swift */; };
 		ED61E1AF229BD6C400DC61A6 /* SinglyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61E1AE229BD6C400DC61A6 /* SinglyLinkedListTests.swift */; };
+		ED630A6C22B382AC00F5E722 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED630A6B22B382AC00F5E722 /* Graph.swift */; };
 		ED6A92D122AF30CF00912DC0 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6A92D022AF30CF00912DC0 /* BinaryTree.swift */; };
 		ED6A92D322AF409800912DC0 /* BinaryTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6A92D222AF409800912DC0 /* BinaryTreeTests.swift */; };
 		ED6A92D522AF950B00912DC0 /* BinaryTreePrint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED6A92D422AF950B00912DC0 /* BinaryTreePrint.jpg */; };
@@ -91,6 +92,7 @@
 		ED50B48922952E1F00534ECA /* BubbleSort.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BubbleSort.jpg; sourceTree = "<group>"; };
 		ED61E1A9229B7E0400DC61A6 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		ED61E1AE229BD6C400DC61A6 /* SinglyLinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedListTests.swift; sourceTree = "<group>"; };
+		ED630A6B22B382AC00F5E722 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		ED6A92D022AF30CF00912DC0 /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
 		ED6A92D222AF409800912DC0 /* BinaryTreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTreeTests.swift; sourceTree = "<group>"; };
 		ED6A92D422AF950B00912DC0 /* BinaryTreePrint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BinaryTreePrint.jpg; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		ED50B478229528FE00534ECA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				ED630A6A22B3801400F5E722 /* Graph */,
 				ED6A92CF22AF304200912DC0 /* Trees */,
 				ED135D5722A67DCA00B7E723 /* HashTable */,
 				EDCA206722A4F18000A7ADB3 /* Search */,
@@ -255,6 +258,14 @@
 				ED50B48422952E1F00534ECA /* StraightInsertionSort.jpg */,
 			);
 			path = Img;
+			sourceTree = "<group>";
+		};
+		ED630A6A22B3801400F5E722 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				ED630A6B22B382AC00F5E722 /* Graph.swift */,
+			);
+			path = Graph;
 			sourceTree = "<group>";
 		};
 		ED6A92CF22AF304200912DC0 /* Trees */ = {
@@ -422,6 +433,7 @@
 				ED135D5922A67DED00B7E723 /* LinkedHashMap.swift in Sources */,
 				ED86D07D229E897C00BCECEC /* Queue.swift in Sources */,
 				EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */,
+				ED630A6C22B382AC00F5E722 /* Graph.swift in Sources */,
 				EDE1572222A0BB4900DB4D69 /* SortQuick.swift in Sources */,
 				ED86D076229E5F5500BCECEC /* Stack.swift in Sources */,
 				ED50B47F22952AAF00534ECA /* DSAOC.m in Sources */,

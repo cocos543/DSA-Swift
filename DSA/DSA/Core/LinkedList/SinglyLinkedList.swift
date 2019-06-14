@@ -8,28 +8,36 @@
 
 import Foundation
 
-/// 单链表节点
-open class SinglyLinkedNode: NSObject {
+@objc public protocol SinglyLinkedNodeProtocol: AnyObject {
+    @objc var value: Any! { get set }
+    @objc var next: SinglyLinkedNodeProtocol? { get set }
+    
+    @objc init(val: Any)
+    
+}
 
+/// 单链表节点
+open class SinglyLinkedNode: NSObject, SinglyLinkedNodeProtocol {
+    
     @objc open var value: Any!
-    @objc open var next: SinglyLinkedNode?
+    @objc open var next: SinglyLinkedNodeProtocol?
     
     @objc public override init() {
         self.value = nil
     }
     
-    @objc public init(val: Any) {
+    @objc required public init(val: Any) {
         value = val
     }
     
     @objc open func openFunc() {
-    
+        
     }
 }
 
 /// 单链表
 open class SinglyLinkedList: NSObject {
-    @objc private var head: SinglyLinkedNode
+    @objc private var head: SinglyLinkedNodeProtocol
     @objc open private(set) var length: Int = 0
     
     /// 初始化一条只有头节点的空链表
@@ -40,7 +48,7 @@ open class SinglyLinkedList: NSObject {
     /// 从一个节点中构建出一个链表对象
     ///
     /// - Parameter node: 第一个节点
-    @objc public init(node: SinglyLinkedNode) {
+    @objc public init(node: SinglyLinkedNodeProtocol) {
         self.head = SinglyLinkedNode()
         super.init()
         self.InsertNode(node: node)
@@ -52,7 +60,7 @@ open class SinglyLinkedList: NSObject {
 extension SinglyLinkedList {
     open override var description: String {
         var listString = ""
-        var p: SinglyLinkedNode? = self.head
+        var p: SinglyLinkedNodeProtocol? = self.head
         while p!.next != nil {
             listString += "\(String(describing: p!.next!.value!))-->"
             p = p!.next
@@ -69,12 +77,12 @@ extension SinglyLinkedList {
     /// 在链表末尾插入一个节点
     ///
     /// - Parameter node: 节点
-    @objc open func InsertNode(node: SinglyLinkedNode) {
+    @objc open func InsertNode(node: SinglyLinkedNodeProtocol) {
         guard node.value != nil else {
             fatalError("value can't be nil")
         }
         
-        var p: SinglyLinkedNode? = self.head
+        var p: SinglyLinkedNodeProtocol? = self.head
         while p!.next != nil {
             p = p!.next
         }
@@ -88,12 +96,12 @@ extension SinglyLinkedList {
     /// 将新节点插入头节点之后
     ///
     /// - Parameter node: 新节点
-    @objc open func InsertNodeHead(node: SinglyLinkedNode) {
+    @objc open func InsertNodeHead(node: SinglyLinkedNodeProtocol) {
         guard node.value != nil else {
             fatalError("value can't be nil")
         }
         
-        let p: SinglyLinkedNode? = self.head
+        let p: SinglyLinkedNodeProtocol? = self.head
         node.next = p?.next
         p?.next = node
         
@@ -107,7 +115,7 @@ extension SinglyLinkedList {
     ///   - dest: 目标节点
     ///   - node: 新节点
     /// - Returns: 插入是否成功
-    @objc open func InsertNodeAfterAt(dest: SinglyLinkedNode, node: SinglyLinkedNode) -> Bool {
+    @objc open func InsertNodeAfterAt(dest: SinglyLinkedNodeProtocol, node: SinglyLinkedNodeProtocol) -> Bool {
         guard node.value != nil else {
             fatalError("value can't be nil")
         }
@@ -115,13 +123,13 @@ extension SinglyLinkedList {
         var inserted = false
         
         // p 最终会指向dest的前一个节点, 或者指向末尾节点
-        var p: SinglyLinkedNode? = self.head
-        while p!.next != dest && p!.next != nil {
+        var p: SinglyLinkedNodeProtocol? = self.head
+        while p!.next !== dest && p!.next != nil {
             p = p!.next
         }
         
         // 找到目标节点, 则将新节点插入dest之后
-        if p?.next == dest {
+        if p?.next === dest {
             node.next = p?.next?.next
             p?.next?.next = node
             
@@ -142,7 +150,7 @@ extension SinglyLinkedList {
     ///   - node: 新节点
     ///   - cmp: 闭包, 用来告诉框架该如何对比值, 因为Any类型编译器无法确认如何对比
     /// - Returns: 插入是否成功
-    @objc open func InsertNodeAfterValueAt(dest: Any, node: SinglyLinkedNode, cmp: CompareF) -> Bool {
+    @objc open func InsertNodeAfterValueAt(dest: Any, node: SinglyLinkedNodeProtocol, cmp: CompareF) -> Bool {
         guard node.value != nil else {
             fatalError("value can't be nil")
         }
@@ -150,8 +158,8 @@ extension SinglyLinkedList {
         var inserted = false
         
         // p 最终会指向dest的前一个节点, 或者指向末尾节点
-        var p: SinglyLinkedNode? = self.head
-        while p!.next != nil && !cmp(p!.next!.value, dest) {
+        var p: SinglyLinkedNodeProtocol? = self.head
+        while p!.next != nil && !cmp(p!.next!.value!, dest) {
             p = p!.next
         }
         
@@ -174,12 +182,12 @@ extension SinglyLinkedList {
     /// 获取指定位置的节点
     ///
     /// - Parameter index: 位置, 这里就不用UInt了, 对于循环链表负数可以表示逆向节点, 所以统一使用Int
-    @objc open func GetNodeAtIndex(index: Int) -> SinglyLinkedNode {
+    @objc open func GetNodeAtIndex(index: Int) -> SinglyLinkedNodeProtocol {
         if index > self.length-1 || index < 0 {
             fatalError("out of range")
         }
         var index = index
-        var p: SinglyLinkedNode? = self.head
+        var p: SinglyLinkedNodeProtocol? = self.head
         while index > -1 {
             p = p?.next
             index -= 1
@@ -191,7 +199,7 @@ extension SinglyLinkedList {
     /// 获取第一个节点
     ///
     /// - Returns: 第一个节点
-    @objc open func GetFirstNode() -> SinglyLinkedNode? {
+    @objc open func GetFirstNode() -> SinglyLinkedNodeProtocol? {
         return self.head.next
     }
 }
@@ -203,15 +211,15 @@ extension SinglyLinkedList {
     ///
     /// - Parameter node: 指定节点
     /// - Returns: 删除结果
-    @objc open func DeleteNode(node: SinglyLinkedNode) -> Bool {
+    @objc open func DeleteNode(node: SinglyLinkedNodeProtocol) -> Bool {
         var deleted = false
         
-        var p: SinglyLinkedNode? = self.head
-        while p?.next != node && p?.next != nil {
+        var p: SinglyLinkedNodeProtocol? = self.head
+        while p?.next !== node && p?.next != nil {
             p = p?.next
         }
         
-        if p?.next == node {
+        if p?.next != nil && p?.next! === node {
             p?.next = p?.next?.next
             // 节点node会被自动回收, 所以不需要其他处理
             self.length -= 1
@@ -231,7 +239,7 @@ extension SinglyLinkedList {
         var index = index
         
         // p 指向目标节点的前一个
-        var p: SinglyLinkedNode? = self.head
+        var p: SinglyLinkedNodeProtocol? = self.head
         while index > 0 {
             p = p?.next
             index -= 1
@@ -264,11 +272,11 @@ extension SinglyLinkedList {
     ///
     /// - Parameter node: 第一个节点
     /// - Returns: 反转后的第一个节点
-    @objc static public func ReverseList(node: SinglyLinkedNode) -> SinglyLinkedNode {
+    @objc static public func ReverseList(node: SinglyLinkedNodeProtocol) -> SinglyLinkedNodeProtocol {
         // cur 在每轮循环之后, 始终指向已反转的区间的第一个节点
         // cur.next 在每轮循环之后, 始终指向未被反转的区间的第一个节点, 所以当cur.next为空时, 表示不需要再继续反转了
-        var cur: SinglyLinkedNode? = node
-        var per: SinglyLinkedNode? = nil
+        var cur: SinglyLinkedNodeProtocol? = node
+        var per: SinglyLinkedNodeProtocol? = nil
         
         while cur != nil {
             let curNext = cur!.next
@@ -290,14 +298,14 @@ extension SinglyLinkedList {
     ///
     /// - Parameter node: 头节点
     /// - Returns: 中间节点
-    @objc static public func GetMedianNode(node: SinglyLinkedNode) -> SinglyLinkedNode {
+    @objc static public func GetMedianNode(node: SinglyLinkedNodeProtocol) -> SinglyLinkedNodeProtocol {
         
         // 哨兵节点, 方便实现当只有一个节点时, 正确返回节点
         let head = SinglyLinkedNode()
         head.next = node
         
-        var slow: SinglyLinkedNode? = head
-        var quick: SinglyLinkedNode? = head
+        var slow: SinglyLinkedNodeProtocol? = head
+        var quick: SinglyLinkedNodeProtocol? = head
         
         // slow 每次走一步, quick每次走两步
         while quick != nil && quick?.next != nil  {
@@ -318,7 +326,7 @@ extension SinglyLinkedList {
     ///
     /// - Parameter node: 第一个节点
     /// - Returns: 是否为回文串
-    @objc static public func IsPalindrome(node: SinglyLinkedNode) -> Bool {
+    @objc static public func IsPalindrome(node: SinglyLinkedNodeProtocol) -> Bool {
         guard let _ = node.value as? String else {
             fatalError("value must be type of string")
         }
@@ -327,7 +335,7 @@ extension SinglyLinkedList {
         let head = SinglyLinkedNode()
         head.next = node
         
-        let pm: SinglyLinkedNode? = SinglyLinkedList.GetMedianNode(node: node)
+        let pm: SinglyLinkedNodeProtocol? = SinglyLinkedList.GetMedianNode(node: node)
         
         // 只有一个节点时, 为回文串
         if pm?.next == nil {
@@ -338,9 +346,9 @@ extension SinglyLinkedList {
         pm?.next = SinglyLinkedList.ReverseList(node: pm!.next!)
         
         // pl.next 指向左半部分第一个节点
-        var pl: SinglyLinkedNode? = head
+        var pl: SinglyLinkedNodeProtocol? = head
         // pr.next即为右半部分第一个节点
-        var pr: SinglyLinkedNode? = pm
+        var pr: SinglyLinkedNodeProtocol? = pm
         
         var isPalined = true
         
@@ -365,14 +373,14 @@ extension SinglyLinkedList {
     ///
     /// - Parameter node: 第一个节点
     /// - Returns: 是否有环
-    @objc static public func IsLoopLinkedList(node: SinglyLinkedNode) -> Bool {
-        var ps: SinglyLinkedNode? = node
-        var pq: SinglyLinkedNode? = node
+    @objc static public func IsLoopLinkedList(node: SinglyLinkedNodeProtocol) -> Bool {
+        var ps: SinglyLinkedNodeProtocol? = node
+        var pq: SinglyLinkedNodeProtocol? = node
         
         while pq?.next != nil && pq?.next?.next != nil {
             ps = ps?.next
             pq = pq?.next?.next
-            if ps == pq {
+            if ps === pq {
                 return true
             }
         }
@@ -389,14 +397,14 @@ extension SinglyLinkedList {
     ///   - node: 第一个节点
     ///   - n: 倒数第n, 这里没对n的合法性进行判断, 请传入时确保有效性
     /// - Returns: 处理过的第一个节点, 如果链表只有一个节点, 删除了则返回nil
-    @objc static public func RemoveNthNodeFromEndOfList(node: SinglyLinkedNode, n: Int) -> SinglyLinkedNode? {
+    @objc static public func RemoveNthNodeFromEndOfList(node: SinglyLinkedNodeProtocol, n: Int) -> SinglyLinkedNodeProtocol? {
         
         // 哨兵节点, 方便让pn指向倒数第n个节点的前一个节点, 方便删除操作
         let head = SinglyLinkedNode()
         head.next = node
         
-        var pn: SinglyLinkedNode? = head
-        var plast: SinglyLinkedNode? = pn
+        var pn: SinglyLinkedNodeProtocol? = head
+        var plast: SinglyLinkedNodeProtocol? = pn
         for _ in 0 ..< n {
             plast = plast?.next
         }
@@ -424,16 +432,16 @@ extension SinglyLinkedList {
     ///   - nodeB: B链第二个节点
     ///   - cmp: 比较闭包, 返回true时表示a在b前, false表示b在a前
     /// - Returns:
-    @objc static public func MergeTowOrderedList(nodeA: SinglyLinkedNode, nodeB: SinglyLinkedNode, cmp: CompareF) -> SinglyLinkedNode {
+    @objc static public func MergeTowOrderedList(nodeA: SinglyLinkedNodeProtocol, nodeB: SinglyLinkedNodeProtocol, cmp: CompareF) -> SinglyLinkedNodeProtocol {
         
         // 哨兵节点, 方便实现对p.next直接赋值, 而不需要判断p是否为nil
-        let head: SinglyLinkedNode = SinglyLinkedNode()
+        let head: SinglyLinkedNodeProtocol = SinglyLinkedNode()
         var p = head
-        var pa: SinglyLinkedNode? = nodeA
-        var pb: SinglyLinkedNode? = nodeB
+        var pa: SinglyLinkedNodeProtocol? = nodeA
+        var pb: SinglyLinkedNodeProtocol? = nodeB
         
         while pa != nil && pb != nil {
-            if cmp(pa!.value, pb!.value) {
+            if cmp(pa!.value!, pb!.value!) {
                 p.next = pa
                 p = p.next!
                 

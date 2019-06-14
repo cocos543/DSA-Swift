@@ -199,7 +199,7 @@ class SinglyLinkedListTests: XCTestCase {
         let node1 = SinglyLinkedNode(val: 1)
         
         // 只有一个节点时, 删除倒数第1个
-        XCTAssertEqual(nil, SinglyLinkedList.RemoveNthNodeFromEndOfList(node: node1, n: 1))
+        XCTAssertEqual(true, SinglyLinkedList.RemoveNthNodeFromEndOfList(node: node1, n: 1) == nil)
         
         let node2 = SinglyLinkedNode(val: 2)
         let node3 = SinglyLinkedNode(val: 3)
