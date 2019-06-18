@@ -190,8 +190,8 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 ### 图的搜索
 
-* [广度优先搜索BFS](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Graph/Graph.swift)
+* [广度优先搜索BFS](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Graph/Graph.swift) ✓
 
-* [深度优先搜索DFS](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Graph/Graph.swift)
+* [深度优先搜索DFS](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Graph/Graph.swift) ✓
 
 
