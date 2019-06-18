@@ -27,11 +27,8 @@ import Foundation
     /// 顶点编号
     @objc open private(set) var no: Int
     
-    /// 权重
+    /// 权重, 表示headNode-->self之间边的权重
     @objc open fileprivate(set) var weight: Int = 0
-    
-    /// wfrom到self之间的边的权重
-    @objc open fileprivate(set) weak var wfrom: Vertex!
     
     
     /// 创建顶点
@@ -103,7 +100,7 @@ open class Graph: NSObject {
                 while temp != nil {
                     // 直接从后置节点开始查找权重
                     
-                    ret += "\(temp!.wfrom.value!)-->\(temp!.value!) weight:\(temp!.weight)"
+                    ret += "\(v.value!)-->\(temp!.value!) weight:\(temp!.weight)"
                     ret += "\n"
                     
                     temp = temp!.next as? Vertex
@@ -146,7 +143,6 @@ extension Graph {
         let tv = Vertex(no: to.no, val: _vertexs[to.no].value!)
         if weight > 0 {
             tv.weight = weight
-            tv.wfrom = from
         }
         
         // 和from相连的顶点to, 作为from的后置节点插入链表中
@@ -158,7 +154,6 @@ extension Graph {
             let fv = Vertex(no: from.no, val: _vertexs[from.no].value!)
             if weight > 0 {
                 fv.weight = weight
-                fv.wfrom = to
             }
             
             // 和to相连的顶点from, 作为to的后置节点插入链表中
