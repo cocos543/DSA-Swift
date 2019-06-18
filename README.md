@@ -1,5 +1,5 @@
 # 文档更新说明
-* 最后更新 2019年06月14日
+* 最后更新 2019年06月18日
 * 首次更新 2019年05月22日
 
 # DSA
@@ -185,6 +185,8 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 ### 存储结构
 
 * [邻接表实现](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Graph/Graph.swift) ✓
+
+![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/Graph.jpg)
 
 ### 图的搜索
 
