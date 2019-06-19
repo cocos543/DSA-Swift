@@ -55,6 +55,8 @@
 		EDE1572222A0BB4900DB4D69 /* SortQuick.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1572122A0BB4900DB4D69 /* SortQuick.swift */; };
 		EDE1572422A0BC1200DB4D69 /* SortMerging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1572322A0BC1200DB4D69 /* SortMerging.swift */; };
 		EDFAB8DF22B8B98D007753B7 /* Graph.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EDFAB8DE22B8B98D007753B7 /* Graph.jpg */; };
+		EDFF018C22B9C9E8002BF8EA /* StringMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFF018B22B9C9E8002BF8EA /* StringMatching.swift */; };
+		EDFF01CC22BA3AED002BF8EA /* StringMatchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFF01CB22BA3AED002BF8EA /* StringMatchingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		EDE1572122A0BB4900DB4D69 /* SortQuick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortQuick.swift; sourceTree = "<group>"; };
 		EDE1572322A0BC1200DB4D69 /* SortMerging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMerging.swift; sourceTree = "<group>"; };
 		EDFAB8DE22B8B98D007753B7 /* Graph.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Graph.jpg; sourceTree = "<group>"; };
+		EDFF018B22B9C9E8002BF8EA /* StringMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMatching.swift; sourceTree = "<group>"; };
+		EDFF01CB22BA3AED002BF8EA /* StringMatchingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMatchingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +220,7 @@
 				ED6A92D222AF409800912DC0 /* BinaryTreeTests.swift */,
 				ED6DC73B22B1DAC3000CB03E /* HeapTests.swift */,
 				ED9E35AF22B7952E008BB591 /* GraphTests.swift */,
+				EDFF01CB22BA3AED002BF8EA /* StringMatchingTests.swift */,
 			);
 			path = DSATests;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 		ED50B478229528FE00534ECA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EDFF018A22B9C964002BF8EA /* String */,
 				ED630A6A22B3801400F5E722 /* Graph */,
 				ED6A92CF22AF304200912DC0 /* Trees */,
 				ED135D5722A67DCA00B7E723 /* HashTable */,
@@ -307,6 +313,14 @@
 				EDCA206822A4F22400A7ADB3 /* Search.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		EDFF018A22B9C964002BF8EA /* String */ = {
+			isa = PBXGroup;
+			children = (
+				EDFF018B22B9C9E8002BF8EA /* StringMatching.swift */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,6 +461,7 @@
 				EDE1572422A0BC1200DB4D69 /* SortMerging.swift in Sources */,
 				ED33A649229FB6C100E5035E /* Helper.swift in Sources */,
 				ED33A645229FAD9000E5035E /* Sort.swift in Sources */,
+				EDFF018C22B9C9E8002BF8EA /* StringMatching.swift in Sources */,
 				ED4191F822B0F9C300960FCA /* Heap.swift in Sources */,
 				ED6A92D722AFA8F300912DC0 /* BinarySearchTree.swift in Sources */,
 				EDCA206922A4F22400A7ADB3 /* Search.swift in Sources */,
@@ -467,6 +482,7 @@
 				ED61E1AF229BD6C400DC61A6 /* SinglyLinkedListTests.swift in Sources */,
 				EDCA206B22A4FC0400A7ADB3 /* SearchTests.swift in Sources */,
 				ED6A92D322AF409800912DC0 /* BinaryTreeTests.swift in Sources */,
+				EDFF01CC22BA3AED002BF8EA /* StringMatchingTests.swift in Sources */,
 				ED86D07F229E8FF700BCECEC /* QueueTests.swift in Sources */,
 				ED50B4092295274800534ECA /* DSATests.swift in Sources */,
 				ED6DC73C22B1DAC3000CB03E /* HeapTests.swift in Sources */,

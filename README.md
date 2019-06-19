@@ -195,3 +195,6 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [深度优先搜索DFS](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Graph/Graph.swift) ✓
 
 
+## [字符串](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/String)
+
+* [朴素匹配算法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/String/StringMatching) ✓
