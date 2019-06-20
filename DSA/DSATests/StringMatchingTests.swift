@@ -16,5 +16,10 @@ class StringMatchingTests: XCTestCase {
         XCTAssertEqual(2, StringMatching.BruteForce(str: str, pattern: "ll"))
         XCTAssertEqual(3, StringMatching.BruteForce(str: str, pattern: "lo"))
     }
+    
+    func testBoyerMoore() {
+        let str = "ACABCBCBACABC"
+        print(StringMatching.BoyerMoore(str: str, pattern: "CABCAB"))
+    }
 
 }

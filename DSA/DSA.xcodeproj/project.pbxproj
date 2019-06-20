@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED006B6722BB28B400101AAC /* BoyerMoore.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED006B6622BB28B400101AAC /* BoyerMoore.pdf */; };
 		ED135D5922A67DED00B7E723 /* LinkedHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED135D5822A67DED00B7E723 /* LinkedHashMap.swift */; };
 		ED135D5B22A67FE500B7E723 /* AddressingHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED135D5A22A67FE500B7E723 /* AddressingHashMap.swift */; };
 		ED2482F322A8F13700D5AC24 /* AddressingHashTable.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED2482F222A8F13700D5AC24 /* AddressingHashTable.jpg */; };
@@ -70,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED006B6622BB28B400101AAC /* BoyerMoore.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BoyerMoore.pdf; sourceTree = "<group>"; };
 		ED135D5822A67DED00B7E723 /* LinkedHashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedHashMap.swift; sourceTree = "<group>"; };
 		ED135D5A22A67FE500B7E723 /* AddressingHashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressingHashMap.swift; sourceTree = "<group>"; };
 		ED2482F222A8F13700D5AC24 /* AddressingHashTable.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AddressingHashTable.jpg; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED006B6522BB288100101AAC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				ED006B6622BB28B400101AAC /* BoyerMoore.pdf */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		ED0E80102295310B00BD254F /* LinkedList */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +256,7 @@
 		ED50B48222952DDA00534ECA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				ED006B6522BB288100101AAC /* Data */,
 				ED50B48322952DF700534ECA /* Img */,
 			);
 			path = Resource;
@@ -425,6 +436,7 @@
 				ED50B48D22952E1F00534ECA /* QuickSortPartition.jpg in Resources */,
 				EDFAB8DF22B8B98D007753B7 /* Graph.jpg in Resources */,
 				ED50B48C22952E1F00534ECA /* QuickSort.jpg in Resources */,
+				ED006B6722BB28B400101AAC /* BoyerMoore.pdf in Resources */,
 				ED50B48E22952E1F00534ECA /* MergingSort.jpg in Resources */,
 				ED50B48122952D8200534ECA /* README.md in Resources */,
 				ED72E13822B0A11800285D6B /* BinarySearchTree.jpg in Resources */,
