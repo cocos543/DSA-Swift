@@ -201,7 +201,8 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 * [Boyer-Moore匹配算法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/String/StringMatching.swift) ✓
 
-时间复杂度: 性能是KMP算法的3-4倍, 最坏时间复杂度是O(n), 3n-5n; 
+时间复杂度: 性能是KMP算法的3-4倍, 最坏时间复杂度是O(n), 3n-5n;
+
 复杂度推导: 实在太复杂, 能力有限, 有兴趣可以看附件推荐的论文; 下面给出代码实现中两个重要数组的示意图, 用于大幅提升算法性能.
 
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BoyerMooreSuffix.jpg)
