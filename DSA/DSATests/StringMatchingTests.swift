@@ -32,5 +32,11 @@ class StringMatchingTests: XCTestCase {
         XCTAssertEqual(10, StringMatching.BoyerMoore(str: str, pattern: "赚钱😂"))
         XCTAssertEqual(-1, StringMatching.BoyerMoore(str: str, pattern: "😂😂"))
     }
+    
+    func testKMP() {
+        var str = ""
+        str = "abababzabababcdef"
+        print(StringMatching.KMP(str: str, pattern: "abababzabababa"))
+    }
 
 }

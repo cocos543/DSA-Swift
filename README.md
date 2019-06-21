@@ -208,6 +208,8 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BoyerMooreSuffix.jpg)
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BoyerMooreIsPrefix.jpg)
 
+* [KMP匹配算法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/String/StringMatching.swift)
+
 # 附件
 
 * [Boyer-Moore匹配算法图解](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Data/BoyerMoore.pdf)
