@@ -298,11 +298,7 @@ extension LinkedHashMap: HashOperate {
         if let v = val {
             _moveOldData()
             
-            // 先查找一下旧桶, 如果key存在于旧桶, 先把旧桶的删了..
-            let ele = _findInOld(key: key)
-            if ele != nil {
-                _removeInOld(element: ele!)
-            }
+            _ = remove(key)
             
             _update(key: key, val: v)
         }else {

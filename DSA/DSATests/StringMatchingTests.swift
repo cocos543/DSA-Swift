@@ -18,8 +18,19 @@ class StringMatchingTests: XCTestCase {
     }
     
     func testBoyerMoore() {
-        let str = "ACABCBCBACABC"
-        print(StringMatching.BoyerMoore(str: str, pattern: "CABCAB"))
+        var str = ""
+        str = "ACABCBCABCABC"
+        XCTAssertEqual(6, StringMatching.BoyerMoore(str: str, pattern: "CABCAB"))
+        
+        str = "GCTTCTGCTACCTTTTGCGCGCGCGCGGAA"
+        XCTAssertEqual(10, StringMatching.BoyerMoore(str: str, pattern: "CCTTTTGC"))
+        
+        str = "CGTGCCTACTTACTTACTTACTTACGCGAA"
+        XCTAssertEqual(8, StringMatching.BoyerMoore(str: str, pattern: "CTTACTTAC"))
+        
+        str = "投资赚钱工作赚钱生意赚钱😂🤣"
+        XCTAssertEqual(10, StringMatching.BoyerMoore(str: str, pattern: "赚钱😂"))
+        XCTAssertEqual(-1, StringMatching.BoyerMoore(str: str, pattern: "😂😂"))
     }
 
 }

@@ -49,6 +49,10 @@ open class StringMatching: NSObject {
     ///   - pattern: 模式串
     /// - Returns: 匹配首次出现的位置
     @objc public static func BruteForce(str: String, pattern: String) -> Int {
+        if str.count < pattern.count {
+            return -1
+        }
+        
         for i in 0...(str.count - pattern.count) {
             // 每次都从主串取出字串进行比较
             let sub = str[i..<(i + pattern.count)]
@@ -147,7 +151,7 @@ open class StringMatching: NSObject {
     ///          |CBACABC
     ///
     /// 再看case3, 好后缀是BC, 在模式串中无法找到匹配前缀子串, 这个时候如果直接把模式串跳到T:BC之后, 则出现过度滑动, 因为在上面`-`处原本
-    /// 就可以匹配到了, 所以这就是为什么case2要对T:后缀子串进行处理.
+    /// 就可以匹配到了, 所以这就是为什么case2要对T:后缀子串进行处理的原因.
     ///
     ///////////////////////////////////////////////////////////////////////
     ///
@@ -162,11 +166,100 @@ open class StringMatching: NSObject {
     ///   - pattern: 模式串
     /// - Returns: 匹配首次出现的位置
     @objc public static func BoyerMoore(str: String, pattern: String) -> Int {
+        if str.count < pattern.count {
+            return -1
+        }
+        
+        // 散列模式串中的字符
+        let pMap = AddressingHashMap(cap: pattern.count)
+        // 这里只记录字符在模式串中从左向右最后一次的下标
+        for i in 0..<pattern.count {
+            pMap.put(key: String(pattern[i]), val: i)
+        }
+        
+        
         var suffix = Array(repeating: -1, count: pattern.count)
+        suffix.append(contentsOf: [])
         var isPrefix = Array(repeating: false, count: pattern.count)
-        StringMatching._generateGS(pattern: pattern, suffix: &suffix, isPrefix: &isPrefix)
         // 先预处理模式串
-        return 0
+        StringMatching._generateGS(pattern: pattern, suffix: &suffix, isPrefix: &isPrefix)
+        
+        // 先从坏字符规则开始处理, 计算出滑动位数, 再使用好后缀规则计算出滑动位数, 取较大值作为下一轮匹配的滑动位数
+        var i = 0
+        var slideDistance = 0
+        while i <= str.count - pattern.count {
+            // jStart指向模式串最后一个字符在母串对应的下标
+            let jStart = pattern.count - 1 + i
+            var j = jStart
+            while j >= i {
+                if pattern[j-i] == str[j] {
+                    j -= 1
+                }else {
+                    break
+                }
+            }
+            if j < i {
+                return i
+            }
+            
+            // 当出现匹配的子串时, j的位置就是坏字符所在位置, 根据坏字符规则, 计算出滑动位数
+            var bgDistance = 0
+            
+            if let index = pMap.get(String(str[j])) as? Int {
+                //先把环字符j投影到模式串上, 得到坏字符在模式串上的下标
+                //            j  jStart
+                //            ↓  ↓
+                //   ACABCBCBOACABC
+                //         OCABCAB
+                let bagPIdnex = (pattern.count-1) - (jStart - j)
+                // 这里可能计算出负值, 因为散列表只能记录字符出现的最右位置, 当出现下面的情况时计算得到的距离是负数
+                // ACABCBCBACABC
+                //       CABCAB
+                bgDistance = bagPIdnex - index
+            }else {
+                bgDistance = pattern.count
+            }
+            
+            ///////////////////////////////////////////////////
+            
+            // 使用好后缀规则, 计算出滑动位数
+            var gsDistance = 0
+            let gsLength = jStart - j
+            
+            if gsLength > 0 {
+                
+                // 这里同样是计算好后缀在模式串的投影下标
+                var gsPIndex = (pattern.count-1) - (jStart - j) + 1
+                // 好后缀在模式串中存在, 按照好后缀规则case1滑动
+                if suffix[gsLength] != -1 {
+                    gsDistance = gsPIndex - suffix[gsLength]
+                }else {
+                    // 后缀子串长度, 从gsLength-1开始到1结束
+                    var subGS = gsLength
+                    while subGS >= 1 {
+                        subGS -= 1
+                        // 后缀子串投影到模式串的下标
+                        gsPIndex += 1
+                        // 如果后缀子串匹配模式串的前缀子串, 则可以按照好后缀case2滑动
+                        if isPrefix[subGS] == true {
+                            gsDistance = gsPIndex
+                            break
+                        }
+                    }
+                }
+                // 如果好后缀和后缀子串都无法在模式串中找到匹配, 则可以直接滑动模式串自身长度的位数
+                if gsDistance == 0 {
+                    gsDistance = pattern.count
+                }
+            }
+            
+            ///////////////////////////////////////////////////
+            
+            slideDistance = max(bgDistance, gsDistance)
+            i += slideDistance
+        }
+        
+        return -1
     }
     
     
@@ -175,7 +268,7 @@ open class StringMatching: NSObject {
     ///
     /// 好后缀的处理规则里, 本质上就是拿模式串后缀子串比较(T:好后缀+T:好后缀的后缀子串)和模式串的子串(不包含模式串最后一个字符,即前缀子串)比较
     /// 为了提高性能, 这里先做预处理, 查找的时候直接查询数组即可
-    /// 这里只需要长度即可, 例如模式串CABCAB, 后缀子串长度5:ABCAB, 长度4:BCAB, 以此类推
+    /// 这里只需要长度即可, 例如模式串CABCAB, 后缀子串长度5:ABCAB, 长度4:BCAB, 以此类推
     ///
     /// - Parameters:
     ///   - pattern: 模式串

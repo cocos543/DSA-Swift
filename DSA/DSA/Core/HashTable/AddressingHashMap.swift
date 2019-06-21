@@ -343,11 +343,7 @@ extension AddressingHashMap: HashOperate {
         if let v = val {
             _moveOldData()
             
-            // 先查找一下旧桶, 如果key存在于旧桶, 先把旧桶的删了..
-            let index = _findInOld(key: key)
-            if index != -1 {
-                _removeInOld(index: index)
-            }
+            _ = remove(key)
             
             _update(key: key, val: v)
             
