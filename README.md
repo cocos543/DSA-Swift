@@ -182,9 +182,10 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 * [Trie树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/TrieTree.swift) ✓
 
-插入, 查找时间复杂度O(n), 空间复杂度根前缀重合度有关.
+插入, 删除, 查找时间复杂度O(n),  空间复杂度根前缀重合度有关.
 1. 子节点使用哈希表存储
 2. 支持任意字符构建字典树
+3. 支持字符串增删查找
 
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/TrieTree.jpg)
 

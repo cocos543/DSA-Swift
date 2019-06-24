@@ -39,6 +39,36 @@ open class TrieTree: NSObject {
 // MARK: - 字典树相关操作
 extension TrieTree {
     
+    /// 删除一个字符串
+    ///
+    /// - Parameter str: 要删除的字符串
+    /// - Returns: 字符串存在时删除后返回true, 不存在返回false
+    @objc open func Delete(str: String) -> Bool {
+        if str == "" {
+            return false
+        }
+        
+        var root = self.root
+        for i in 0..<str.count {
+            let c = String(str[i])
+            
+            if let node = root.children.get(c) as? TrieNode {
+                root = node
+            }else {
+                // 不存在
+                return false
+            }
+        }
+        
+        // 字符串存在时, 删除并返回true
+        if root.deleted == false {
+            root.deleted = true
+            return true
+        }
+        
+        return false
+    }
+    
     /// 插入一个字符串
     ///
     /// - Parameter str: 字符串
@@ -59,6 +89,11 @@ extension TrieTree {
                     node.ending = true
                 }
             }
+        }
+        
+        // 如果节点是被标记为删除的, 直接恢复即可
+        if root.deleted == true {
+            root.deleted = false
         }
     }
     
@@ -113,7 +148,7 @@ extension TrieTree {
     ///   - pre: 前缀, 不包括root.value字符
     ///   - arr: 存储字符串
     private func _getSubString(root: TrieNode, pre: String, arr: inout [String]) {
-        if root.ending == true {
+        if root.ending == true && root.deleted == false {
             arr.append(pre + root.value)
         }
         

@@ -24,6 +24,14 @@ class TrieTreeTests: XCTestCase {
         print(tTree.FindPrefix(prefix: "中国"))
         print(tTree.FindPrefix(prefix: "中国人"))
         
+        XCTAssertEqual(true, tTree.Delete(str: "hello"))
+        XCTAssertEqual(false, tTree.Delete(str: "hello"))
+        
+        print("Delete hello", tTree.FindPrefix(prefix: "he"))
+        
+        tTree.Insert(str: "hello")
+        print("Inert hello:", tTree.FindPrefix(prefix: "he"))
+        
     }
 
 }
