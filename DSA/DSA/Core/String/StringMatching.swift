@@ -338,6 +338,33 @@ open class StringMatching: NSObject {
     @objc public static func KMP(str: String, pattern: String) -> Int {
         let next = StringMatching._generateNext(pattern: pattern)
         
+        // 从主串开始逐个和模式串匹配
+        var j = 0
+        // 记录已经匹配的子串结尾字符下标
+        var matched = -1
+        var i = 0
+        while i < str.count {
+
+            if str[i] == pattern[j] {
+                if j == pattern.count - 1 {
+                    return i - pattern.count + 1
+                }
+                j += 1
+                matched += 1
+                i += 1
+            }else {
+                // 如果出现坏字符, 则找到最合适的模式串字符下标重新开始匹配
+                if matched > 0 {
+                    j = next[matched] + 1
+                    matched = -1
+                }else {
+                    // 当不存在最长可匹配前缀子串时, i继续前进, 模式串从第一个字符开始匹配
+                    j = 0
+                    i += 1
+                }
+            }
+        }
+        
         return -1
     }
     

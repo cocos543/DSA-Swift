@@ -35,8 +35,14 @@ class StringMatchingTests: XCTestCase {
     
     func testKMP() {
         var str = ""
-        str = "abababzabababcdef"
-        print(StringMatching.KMP(str: str, pattern: "abababzabababa"))
+        str = "ABABAEABAC"
+        XCTAssertEqual(-1, StringMatching.KMP(str: str, pattern: "ABABACD"))
+        
+        str = "ABABAEABABACD"
+        XCTAssertEqual(6, StringMatching.KMP(str: str, pattern: "ABABACD"))
+        
+        str = "ACAGAEABABACD"
+        XCTAssertEqual(10, StringMatching.KMP(str: str, pattern: "ACD"))
     }
 
 }
