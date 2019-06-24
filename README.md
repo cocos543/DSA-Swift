@@ -1,5 +1,5 @@
 # 文档更新说明
-* 最后更新 2019年06月19日
+* 最后更新 2019年06月24日
 * 首次更新 2019年05月22日
 
 # DSA
@@ -210,7 +210,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 * [KMP匹配算法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/String/StringMatching.swift) ✓
 
-KMP算法的核心预处理数组如下示意图
+时间复杂度O(n+m), n是主串长度, m是模式串长度. KMP算法的核心预处理数组如下示意图
 
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/KMPNexts.jpg)
 
