@@ -24,6 +24,11 @@ open class Stack: NSObject {
         self.items = []
         self.cap = cap
     }
+    
+    @objc public override init() {
+        self.items = []
+        self.cap = Int.max
+    }
 }
 
 // MARK: - Debug

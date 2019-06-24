@@ -50,6 +50,9 @@
 		ED86D07D229E897C00BCECEC /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D07C229E897C00BCECEC /* Queue.swift */; };
 		ED86D07F229E8FF700BCECEC /* QueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED86D07E229E8FF700BCECEC /* QueueTests.swift */; };
 		ED8C44E122C0812000701B8F /* KMPNexts.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8C44E022C0812000701B8F /* KMPNexts.jpg */; };
+		ED8C44E322C0AE4300701B8F /* TrieTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C44E222C0AE4300701B8F /* TrieTree.swift */; };
+		ED8C44E522C0C2F600701B8F /* TrieTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C44E422C0C2F600701B8F /* TrieTreeTests.swift */; };
+		ED8C44E722C0D01B00701B8F /* TrieTree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8C44E622C0D01B00701B8F /* TrieTree.jpg */; };
 		ED9E35B022B7952E008BB591 /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9E35AF22B7952E008BB591 /* GraphTests.swift */; };
 		EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */; };
 		EDB18BFC22ADF3E500EACADE /* LinkedHashMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB18BFB22ADF3E500EACADE /* LinkedHashMapTests.swift */; };
@@ -120,6 +123,9 @@
 		ED86D07C229E897C00BCECEC /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		ED86D07E229E8FF700BCECEC /* QueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueTests.swift; sourceTree = "<group>"; };
 		ED8C44E022C0812000701B8F /* KMPNexts.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = KMPNexts.jpg; sourceTree = "<group>"; };
+		ED8C44E222C0AE4300701B8F /* TrieTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrieTree.swift; sourceTree = "<group>"; };
+		ED8C44E422C0C2F600701B8F /* TrieTreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrieTreeTests.swift; sourceTree = "<group>"; };
+		ED8C44E622C0D01B00701B8F /* TrieTree.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TrieTree.jpg; sourceTree = "<group>"; };
 		ED9E35AF22B7952E008BB591 /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
 		EDAEE9ED229985DD00D19007 /* DoubleLinkedLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLinkedLists.swift; sourceTree = "<group>"; };
 		EDB18BFB22ADF3E500EACADE /* LinkedHashMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedHashMapTests.swift; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 				ED6DC73B22B1DAC3000CB03E /* HeapTests.swift */,
 				ED9E35AF22B7952E008BB591 /* GraphTests.swift */,
 				EDFF01CB22BA3AED002BF8EA /* StringMatchingTests.swift */,
+				ED8C44E422C0C2F600701B8F /* TrieTreeTests.swift */,
 			);
 			path = DSATests;
 			sourceTree = "<group>";
@@ -271,6 +278,7 @@
 		ED50B48322952DF700534ECA /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				ED8C44E622C0D01B00701B8F /* TrieTree.jpg */,
 				ED8C44E022C0812000701B8F /* KMPNexts.jpg */,
 				ED815AEC22BC82AC00B6450C /* BoyerMooreSuffix.jpg */,
 				ED815AEB22BC82AC00B6450C /* BoyerMooreIsPrefix.jpg */,
@@ -306,6 +314,7 @@
 				ED6A92D022AF30CF00912DC0 /* BinaryTree.swift */,
 				ED6A92D622AFA8F300912DC0 /* BinarySearchTree.swift */,
 				ED4191F722B0F9C300960FCA /* Heap.swift */,
+				ED8C44E222C0AE4300701B8F /* TrieTree.swift */,
 			);
 			path = Trees;
 			sourceTree = "<group>";
@@ -451,6 +460,7 @@
 				ED50B48E22952E1F00534ECA /* MergingSort.jpg in Resources */,
 				ED50B48122952D8200534ECA /* README.md in Resources */,
 				ED72E13822B0A11800285D6B /* BinarySearchTree.jpg in Resources */,
+				ED8C44E722C0D01B00701B8F /* TrieTree.jpg in Resources */,
 				ED33A64B229FDFAA00E5035E /* SelectionSort.jpg in Resources */,
 				ED50B48A22952E1F00534ECA /* StraightInsertionSort.jpg in Resources */,
 				EDE0991422B2473B00BE1EE6 /* HeapSort.jpg in Resources */,
@@ -477,6 +487,7 @@
 				ED6A92D122AF30CF00912DC0 /* BinaryTree.swift in Sources */,
 				ED135D5922A67DED00B7E723 /* LinkedHashMap.swift in Sources */,
 				ED86D07D229E897C00BCECEC /* Queue.swift in Sources */,
+				ED8C44E322C0AE4300701B8F /* TrieTree.swift in Sources */,
 				EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */,
 				ED630A6C22B382AC00F5E722 /* Graph.swift in Sources */,
 				EDE1572222A0BB4900DB4D69 /* SortQuick.swift in Sources */,
@@ -503,6 +514,7 @@
 				ED6F06D522A7A463001DF04A /* AddressingHashMapTests.swift in Sources */,
 				EDB18BFC22ADF3E500EACADE /* LinkedHashMapTests.swift in Sources */,
 				ED9E35B022B7952E008BB591 /* GraphTests.swift in Sources */,
+				ED8C44E522C0C2F600701B8F /* TrieTreeTests.swift in Sources */,
 				ED61E1AF229BD6C400DC61A6 /* SinglyLinkedListTests.swift in Sources */,
 				EDCA206B22A4FC0400A7ADB3 /* SearchTests.swift in Sources */,
 				ED6A92D322AF409800912DC0 /* BinaryTreeTests.swift in Sources */,

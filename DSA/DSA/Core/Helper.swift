@@ -24,3 +24,28 @@ public class Helper: NSObject {
         arr[i] = t
     }
 }
+
+// MARK: - 扩展系统的String类, 支持整型下下标访问
+extension String {
+    internal subscript(i: Int) -> Character {
+        get {
+            return self[self.index(self.startIndex, offsetBy: i)]
+        }
+    }
+    
+    internal subscript(r: Range<Int>) -> Substring {
+        get {
+            let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
+            let endIndex = self.index(self.startIndex, offsetBy: r.upperBound)
+            return self[startIndex..<endIndex]
+        }
+    }
+    
+    internal subscript(r: ClosedRange<Int>) -> Substring {
+        get {
+            let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
+            let endIndex = self.index(self.startIndex, offsetBy: r.upperBound)
+            return self[startIndex...endIndex]
+        }
+    }
+}

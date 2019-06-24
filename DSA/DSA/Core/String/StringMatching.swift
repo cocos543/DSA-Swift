@@ -9,33 +9,6 @@
 import Foundation
 
 
-
-// MARK: - 扩展系统的String类, 支持整型下下标访问
-extension String {
-    fileprivate subscript(i: Int) -> Character {
-        get {
-            return self[self.index(self.startIndex, offsetBy: i)]
-        }
-    }
-    
-    fileprivate subscript(r: Range<Int>) -> Substring {
-        get {
-            let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
-            let endIndex = self.index(self.startIndex, offsetBy: r.upperBound)
-            return self[startIndex..<endIndex]
-        }
-    }
-    
-    fileprivate subscript(r: ClosedRange<Int>) -> Substring {
-        get {
-            let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
-            let endIndex = self.index(self.startIndex, offsetBy: r.upperBound)
-            return self[startIndex...endIndex]
-        }
-    }
-}
-
-
 /// 字符串匹配算法类
 ///
 open class StringMatching: NSObject {
