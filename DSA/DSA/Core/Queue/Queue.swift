@@ -74,7 +74,7 @@ extension Queue {
 // MARK: - 队列操作
 extension Queue {
     
-    /// 入队
+    /// 入队, 时间复杂度O(1)
     ///
     /// - Parameter ele: 入队元素
     /// - Returns: 入队结果
@@ -91,7 +91,7 @@ extension Queue {
     }
     
     
-    /// 出队
+    /// 出队, 时间复杂度O(1)
     ///
     /// - Returns: 队头元素
     @objc open func DeQueue() -> Any? {

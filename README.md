@@ -58,6 +58,8 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 * [顺序队列](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Queue/Queue.swift) ✓
 
+操作时间复杂度O(1), 空间复杂度O(1)
+
 ## [排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort)
 
 ### 稳定的排序算法
@@ -188,6 +190,12 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 3. 支持字符串增删查找
 
 ![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/TrieTree.jpg)
+
+* [AC自动机算法(Aho–Corasick)](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/ACTree.swift) ✓
+
+实现多模式串匹配算法, 时间复杂度O(n), 空间复杂度O(1)
+1. 基于trie树实现
+2. 支持多模式串匹配, 可用于关键词过滤
 
 ## [图](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Graph)
 

@@ -9,19 +9,26 @@
 import Foundation
 
 
+@objc public protocol TrieNodeProtocol: AnyObject {
+    @objc var value: String { get set }
+    @objc var children: AddressingHashMap { get }
+    @objc var ending: Bool { get set }
+    @objc var deleted: Bool { get set }
+    @objc init(value: String)
+}
+
 /// 字典树节点
-open class TrieNode: NSObject {
+open class TrieNode: NSObject, TrieNodeProtocol {
     @objc open var value: String
     // 这里使用散列表存储子节点指针. 也可以使用数组, 这样数组就要事先开辟字符集大小的空间了.
-    @objc open var children: AddressingHashMap
+    @objc public let children: AddressingHashMap = AddressingHashMap(cap: 2)
     
     @objc open var ending: Bool = false
     
     @objc open var deleted: Bool = false
     
-    @objc public init(value: String) {
+    @objc required public init(value: String) {
         self.value = value
-        self.children = AddressingHashMap(cap: 2)
     }
 }
 
@@ -44,29 +51,7 @@ extension TrieTree {
     /// - Parameter str: 要删除的字符串
     /// - Returns: 字符串存在时删除后返回true, 不存在返回false
     @objc open func Delete(str: String) -> Bool {
-        if str == "" {
-            return false
-        }
-        
-        var root = self.root
-        for i in 0..<str.count {
-            let c = String(str[i])
-            
-            if let node = root.children.get(c) as? TrieNode {
-                root = node
-            }else {
-                // 不存在
-                return false
-            }
-        }
-        
-        // 字符串存在时, 删除并返回true
-        if root.deleted == false {
-            root.deleted = true
-            return true
-        }
-        
-        return false
+        return TrieTree.Delete(str: str, root: self.root)
     }
     
     /// 插入一个字符串
@@ -74,27 +59,7 @@ extension TrieTree {
     /// - Parameter str: 字符串
     @objc open func Insert(str: String) {
         //找到适合的节点, 将字符插入
-        var root = self.root
-        for i in 0..<str.count {
-            let c = String(str[i])
-            
-            if let node = root.children.get(c) as? TrieNode {
-                root = node
-            }else {
-                let node = TrieNode(value: c)
-                root.children.put(key: c, val: node)
-                root = node
-                
-                if i == str.count - 1 {
-                    node.ending = true
-                }
-            }
-        }
-        
-        // 如果节点是被标记为删除的, 直接恢复即可
-        if root.deleted == true {
-            root.deleted = false
-        }
+        TrieTree.Insert(str: str, root: self.root)
     }
     
     
@@ -137,7 +102,7 @@ extension TrieTree {
     
     /// 传入根节点, 返回所有根节点下的字符串
     ///
-    /// 算法思路: 使用递归遍历, 递归公式:
+    /// 算法思路: 使用递归遍历, 递推公式:
     ///
     /// f(1) = c
     ///
@@ -155,6 +120,68 @@ extension TrieTree {
         for key in root.children.keys() {
             let node = root.children.get(key) as! TrieNode
             _getSubString(root: node, pre: pre+root.value, arr: &arr)
+        }
+    }
+}
+
+
+// MARK: - 抽象出字典树构建算法
+extension TrieTree {
+    /// 删除一个字符串
+    ///
+    /// - Parameter str: 要删除的字符串
+    /// - Returns: 字符串存在时删除后返回true, 不存在返回false
+    internal static func Delete<T: TrieNodeProtocol>(str: String, root: T) -> Bool {
+        if str == "" {
+            return false
+        }
+        
+        var root = root
+        for i in 0..<str.count {
+            let c = String(str[i])
+            
+            if let node = root.children.get(c) as? T {
+                root = node
+            }else {
+                // 不存在
+                return false
+            }
+        }
+        
+        // 字符串存在时, 删除并返回true
+        if root.deleted == false {
+            root.deleted = true
+            return true
+        }
+        
+        return false
+    }
+    
+    /// 插入一个字符串
+    ///
+    /// - Parameter str: 字符串
+    internal static func Insert<T: TrieNodeProtocol>(str: String, root: T) {
+        //找到适合的节点, 将字符插入
+        var root = root
+        for i in 0..<str.count {
+            let c = String(str[i])
+            
+            if let node = root.children.get(c) as? T {
+                root = node
+            }else {
+                let node = T(value: c)
+                root.children.put(key: c, val: node)
+                root = node
+                
+                if i == str.count - 1 {
+                    node.ending = true
+                }
+            }
+        }
+        
+        // 如果节点是被标记为删除的, 直接恢复即可
+        if root.deleted == true {
+            root.deleted = false
         }
     }
 }
