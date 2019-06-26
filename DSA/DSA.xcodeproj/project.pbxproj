@@ -10,6 +10,8 @@
 		ED006B6722BB28B400101AAC /* BoyerMoore.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED006B6622BB28B400101AAC /* BoyerMoore.pdf */; };
 		ED135D5922A67DED00B7E723 /* LinkedHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED135D5822A67DED00B7E723 /* LinkedHashMap.swift */; };
 		ED135D5B22A67FE500B7E723 /* AddressingHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED135D5A22A67FE500B7E723 /* AddressingHashMap.swift */; };
+		ED2024D822C347AF0038826E /* Backtracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2024D722C347AF0038826E /* Backtracking.swift */; };
+		ED2024DA22C349D00038826E /* Backtraking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2024D922C349D00038826E /* Backtraking.swift */; };
 		ED2482F322A8F13700D5AC24 /* AddressingHashTable.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED2482F222A8F13700D5AC24 /* AddressingHashTable.jpg */; };
 		ED33A645229FAD9000E5035E /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33A644229FAD9000E5035E /* Sort.swift */; };
 		ED33A647229FADED00E5035E /* SortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33A646229FADED00E5035E /* SortTests.swift */; };
@@ -82,6 +84,8 @@
 		ED006B6622BB28B400101AAC /* BoyerMoore.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BoyerMoore.pdf; sourceTree = "<group>"; };
 		ED135D5822A67DED00B7E723 /* LinkedHashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedHashMap.swift; sourceTree = "<group>"; };
 		ED135D5A22A67FE500B7E723 /* AddressingHashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressingHashMap.swift; sourceTree = "<group>"; };
+		ED2024D722C347AF0038826E /* Backtracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backtracking.swift; sourceTree = "<group>"; };
+		ED2024D922C349D00038826E /* Backtraking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backtraking.swift; sourceTree = "<group>"; };
 		ED2482F222A8F13700D5AC24 /* AddressingHashTable.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AddressingHashTable.jpg; sourceTree = "<group>"; };
 		ED33A644229FAD9000E5035E /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		ED33A646229FADED00E5035E /* SortTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTests.swift; sourceTree = "<group>"; };
@@ -188,6 +192,14 @@
 			path = HashTable;
 			sourceTree = "<group>";
 		};
+		ED2024DB22C354FD0038826E /* Backtraking */ = {
+			isa = PBXGroup;
+			children = (
+				ED2024D722C347AF0038826E /* Backtracking.swift */,
+			);
+			path = Backtraking;
+			sourceTree = "<group>";
+		};
 		ED33A643229FAD7000E5035E /* Sort */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +261,7 @@
 				EDFF01CB22BA3AED002BF8EA /* StringMatchingTests.swift */,
 				ED8C44E422C0C2F600701B8F /* TrieTreeTests.swift */,
 				EDCF104822C1C445008EE987 /* ACTreeTests.swift */,
+				ED2024D922C349D00038826E /* Backtraking.swift */,
 			);
 			path = DSATests;
 			sourceTree = "<group>";
@@ -256,6 +269,7 @@
 		ED50B478229528FE00534ECA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				ED2024DB22C354FD0038826E /* Backtraking */,
 				EDFF018A22B9C964002BF8EA /* String */,
 				ED630A6A22B3801400F5E722 /* Graph */,
 				ED6A92CF22AF304200912DC0 /* Trees */,
@@ -495,6 +509,7 @@
 				ED86D07D229E897C00BCECEC /* Queue.swift in Sources */,
 				ED8C44E322C0AE4300701B8F /* TrieTree.swift in Sources */,
 				EDAEE9EE229985DD00D19007 /* DoubleLinkedLists.swift in Sources */,
+				ED2024D822C347AF0038826E /* Backtracking.swift in Sources */,
 				ED630A6C22B382AC00F5E722 /* Graph.swift in Sources */,
 				EDE1572222A0BB4900DB4D69 /* SortQuick.swift in Sources */,
 				ED86D076229E5F5500BCECEC /* Stack.swift in Sources */,
@@ -529,6 +544,7 @@
 				EDFF01CC22BA3AED002BF8EA /* StringMatchingTests.swift in Sources */,
 				ED86D07F229E8FF700BCECEC /* QueueTests.swift in Sources */,
 				ED50B4092295274800534ECA /* DSATests.swift in Sources */,
+				ED2024DA22C349D00038826E /* Backtraking.swift in Sources */,
 				ED6DC73C22B1DAC3000CB03E /* HeapTests.swift in Sources */,
 				ED86D073229E19D300BCECEC /* DoubleLinkedListsTests.swift in Sources */,
 			);
