@@ -1,5 +1,5 @@
 # 文档更新说明
-* 最后更新 2019年06月26日
+* 最后更新 2019年06月27日
 * 首次更新 2019年05月22日
 
 # DSA
@@ -238,6 +238,8 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [背包问题](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Backtraking/Backtraking.swift) ✓
 
 ## [动态规划](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic)
+
+* [01背包问题](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Backtraking/Backtraking.swift) ✓
 
 # 附件
 

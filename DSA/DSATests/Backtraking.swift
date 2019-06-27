@@ -16,6 +16,6 @@ class BacktrakingTests: XCTestCase {
     
     func testKnapsack() {
         let items = [10, 20, 30, 40, 50, 55]
-        print(Backtracking.Knapsack(items: items, index: 0, putIn: [Int](), cap: 100))
+        print(Backtracking.Knapsack(items: items, index: 0, putIn: [Int](), cap: 99))
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 
 /// 回溯算法
-internal class Backtracking: NSObject {
+internal class Backtracking {
     
     /// 八皇后问题
     ///
