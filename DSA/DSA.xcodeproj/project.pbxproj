@@ -196,12 +196,12 @@
 			path = HashTable;
 			sourceTree = "<group>";
 		};
-		ED2024DB22C354FD0038826E /* Backtraking */ = {
+		ED2024DB22C354FD0038826E /* Backtracking */ = {
 			isa = PBXGroup;
 			children = (
 				ED2024D722C347AF0038826E /* Backtracking.swift */,
 			);
-			path = Backtraking;
+			path = Backtracking;
 			sourceTree = "<group>";
 		};
 		ED33A643229FAD7000E5035E /* Sort */ = {
@@ -275,7 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF49C5422C45C1F007A8988 /* Dynamic */,
-				ED2024DB22C354FD0038826E /* Backtraking */,
+				ED2024DB22C354FD0038826E /* Backtracking */,
 				EDFF018A22B9C964002BF8EA /* String */,
 				ED630A6A22B3801400F5E722 /* Graph */,
 				ED6A92CF22AF304200912DC0 /* Trees */,

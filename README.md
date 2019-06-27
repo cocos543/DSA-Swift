@@ -233,13 +233,13 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 ## [回溯算法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Backtraking)
 
-* [八皇后问题](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Backtraking/Backtraking.swift) ✓
+* [八皇后问题](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Backtracking/Backtracking.swift) ✓
 
-* [背包问题](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Backtraking/Backtraking.swift) ✓
+* [背包问题](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Backtracking/Backtracking.swift) ✓
 
 ## [动态规划](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic)
 
-* [01背包问题](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Backtraking/Backtraking.swift) ✓
+* [01背包问题](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic/Dynamic.swift) ✓
 
 # 附件
 
