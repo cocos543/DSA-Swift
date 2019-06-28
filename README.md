@@ -239,7 +239,15 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 ## [动态规划](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic)
 
-* [01背包问题](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic/Dynamic.swift) ✓
+* [01背包模型](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic/Dynamic.swift) ✓
+
+* [矩阵模型](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic/Dynamic.swift) ✓
+
+* [硬币找零模型](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic/Dynamic.swift) ✓
+
+* [求解字符串相似度模型](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic/Dynamic.swift)
+
+
 
 # 附件
 

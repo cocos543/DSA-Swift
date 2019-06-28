@@ -25,5 +25,9 @@ class DynamicTests: XCTestCase {
     func testTriangle() {
         Dynamic.LikePascaltriangle()
     }
+    
+    func testMinCoins() {
+        print(Dynamic.MinCoins(coins: [1,3,5], money: 9))
+    }
 
 }
