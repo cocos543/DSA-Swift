@@ -29,5 +29,13 @@ class DynamicTests: XCTestCase {
     func testMinCoins() {
         print(Dynamic.MinCoins(coins: [1,3,5], money: 9))
     }
+    
+    func testLevenshteinDistance() {
+        XCTAssertEqual(3, Dynamic.LevenshteinDistance(aStr: "mitcmu", bStr: "mtacnu"))
+    }
+    
+    func testLongestCommonSubstring() {
+        XCTAssertEqual(4, Dynamic.LongestCommonSubstring(aStr: "mitcmu", bStr: "mtacnu"))
+    }
 
 }

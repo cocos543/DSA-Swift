@@ -318,10 +318,10 @@ extension Dynamic {
     ///
     /// 直觉看出, 把字符串a:i删除, 然后把b:a删除, 把b:n改成b:m, 这样两个字符串就一样了, 一共需要3次操作,距离3. 当然还有很多种修改方法,
     /// 比如在b:mt中间插入一个字符i, 在a:tc中间插入字符a, 删掉a:m, 删掉b:n, 这样两个字符串也一样了, 一共需要4次操作.
-    /// 那么怎么求出这个最少的操作次数呢? 从第0个字符串开始, 每一次的操作性都是有限的
+    /// 那么怎么求出这个最少的操作次数呢? 从第0个字符串开始, 每一次的操作性都是有限的.
     /// 如果两个字符不同, 那么就有插入删除修改三种方法:
     /// 1. 对a[0]进行删除, 则下一步对比a[1], b[0]位置的字符, 同时距离+1
-    /// 2. 在a[0]前面插入一个和b[0]相同的字符, 则下一步还是对比a[0], b[1], 同时距离+1
+    /// 2. 在a[0]前面插入一个和b[0]相同的字符, 则下一步对比a[0], b[1], 同时距离+1
     /// 3. 对a[0]进行修改, 下一步对比a[1], b[1]位置的字符, 同时距离+1
     ///
     /// 上面是对a字符进行操作, 下面看看对b字符进行操作会有什么情况发生:
@@ -341,15 +341,16 @@ extension Dynamic {
     ///
     ///
     /// 当a[i] 等于 b[j]时:
-    /// edist(i, j) = min( edist(i, j-1)+1,, edist(i-1, j)+1, edist(i-1, j-1) )
+    /// edist(i, j) = min( edist(i, j-1)+1, edist(i-1, j)+1, edist(i-1, j-1) )
     ///
-    /// edist(i, j) 表示这个状态处理后需要编辑的次数. 如果a[i] != a[j], 那么还需要再处理1次, 所以就算上一个状态是从(i-1, j-1)过来的也要+1
-    ///
+    /// edist(i, j) 表示这个状态处理后需要编辑的次数. 当上一个状态来自(i-1,j-1)时, 说明上一个状态时最合理的,
+    /// 下一个状态就是(i,j), 如果a[i], b[j]相等则不需要额外操作. 如果上一个状态不是来自(i-1, j-1), 说明上一个状态不是(i,j)的最合理前状态, 需要额外
+    /// 操作才能到达(i,j), 因此不管a[i], [j]是否相等都需要+1 (这个地方其实更像是一种固定规律, 真的不好理解啊, 我只能牵强解释 :)
     ///
     /// - Parameters:
     ///   - aStr: 字符串a
     ///   - bStr: 字符串b
-    /// - Returns: 距离
+    /// - Returns: 距离, 数字越大相似度越差
     internal static func LevenshteinDistance(aStr: String, bStr: String) -> Int {
         
         // 使用状态表保存每一次状态, 下标是匹配的字符位置, 值代表距离
@@ -361,21 +362,132 @@ extension Dynamic {
             // 这里也不好理解... 举个例子, 字符串a:m, 字符串b:mtacnu, 得到的结果就是[0,1,2,3,4,5], 有一个相同, 最小距离5
             // 字符串a:q, 字符串b:mtacnu, 得到的结果就是[1,2,3,4,5,6], 完全没有相同的字符, 最小距离6
             // 字符串a:c, 字符串b:mtacnu, 得到的结果就是[1,2,3,3,4,5], 有一个相同, 最小距离5
+            if aStr[0] == bStr[j] {
+                // 当j是0时, 符合要求
+                states[0][j] = j
+            }else if j == 0 {
+                states[0][0] = 1
+            }else {
+                // 两个字符不等, 且不是第一个时, 直接等于上一个状态+1
+                states[0][j] = states[0][j-1] + 1
+            }
             
         }
         
-        // 处理第0列
+        
+        // 处理第0列, 道理和处理第0是一样的
         for i in 0..<aStr.count {
-            
+            if aStr[0] == bStr[i] {
+                // 当j是0时, 符合要求
+                states[i][0] = i
+            }else if i == 0 {
+                states[i][0] = 1
+            }else {
+                // 两个字符不等, 且不是第一个时, 直接等于上一个状态+1
+                states[i][0] = states[i-1][0] + 1
+            }
         }
         
         // 处理全部状态
         for i in 1..<aStr.count {
             for j in 1..<bStr.count {
-                
+                // 根据状态转移公式, 填充状态表
+                if aStr[i] == bStr[j] {
+                    states[i][j] = Helper.Min(a: states[i][j-1] + 1, b: states[i-1][j] + 1, c: states[i-1][j-1])
+                }else {
+                    states[i][j] = Helper.Min(a: states[i][j-1] + 1, b: states[i-1][j] + 1, c: states[i-1][j-1] + 1)
+                }
             }
         }
         
-        return 0
+        for ls in states {
+            print(ls)
+        }
+        
+        // 状态表右下脚就是答案了
+        return states[aStr.count - 1][bStr.count - 1]
+    }
+    
+    
+    
+    /// 利用最长公共子串算法求解字符串相似度
+    ///
+    /// 算法思路: 参考LevenshteinDistance. 字符替换规则是, 只允许对字符进行删除或者添加, 不允许修改字符.
+    ///
+    ///    a:mitcmu
+    ///    b:mtacnu
+    ///
+    /// 如果两个字符不同, a[0] != b[0], 则有以下几种处理方法:
+    /// 1. 删除a[0], 下一步比较a[1], b[0], 相似度不变.
+    /// 2. 在a[0]前面插入一个和b[0]相同的字符, 下一步比较a[0], b[1], 相似度不变.
+    ///
+    /// 上面是处理字符串a, 下面是处理字符串b的情况:
+    /// 1. 删除b[0], 下一步比较a[0], b[1], 相似度不变
+    /// 2. 在b[0]前面插入一个和a[0]相同的字符, 下一步比较a[1], b[0], 相似度不变.
+    ///
+    ///
+    /// 如果两个字符相同, a[i] == b[j], 则只有一种处理方法, 下一步比较a[i+1], b[j+1].
+    ///
+    /// 观察上面的例子, 可以发现状态转移一共只有3种情况, [i, j] 的状态只可能来自 [i-1, j], [i, j-1], [i-1, j-1], 状态公式如下:
+    ///
+    /// 当前匹配的符号不同时:
+    /// lcs(i, j) = max(lcs(i-1, j), lcs(i, j-1), lcs(i-1, j-1))
+    ///
+    /// 当前匹配的符号相同时:
+    /// lcs(i, j) = max(lcs(i-1, j), lcs(i, j-1), lcs(i-1, j-1) + 1)
+    ///
+    /// 其中lcs(i, j)表示状态(i, j)处理之后, 字符串的最大相似度是多少.
+    ///
+    ///
+    ///
+    ///
+    ///
+    /// - Returns: 相似度, 数字越大越相似
+    internal static func LongestCommonSubstring(aStr: String, bStr: String) -> Int {
+        
+        // 处理化第0行, 0列
+        
+        // 使用状态表保存每一次状态, 下标是匹配的字符位置, 值代表相似程度
+        var states = [[Int]](repeating: [Int](repeating: 0, count: bStr.count), count: aStr.count)
+        
+        // 特殊处理边缘
+        for j in 0..<bStr.count {
+            // a:c, b:mtacnu, 处理的结果就是[0, 0, 0, 1, 1, 1]
+            if aStr[0] == bStr[j] {
+                // 最多匹配一次...
+                states[0][j] = 1
+            }else if j == 0 {
+                states[0][j] = 0
+            }else {
+                states[0][j] = states[0][j-1]
+            }
+        }
+        
+        for i in 0..<aStr.count {
+            if aStr[i] == bStr[0] {
+                // 最多匹配一次...
+                states[i][0] = 1
+            }else if i == 0 {
+                states[i][0] = 0
+            }else {
+                states[i][0] = states[i-1][0]
+            }
+        }
+        
+        for i in 1..<aStr.count {
+            for j in 1..<bStr.count {
+                if aStr[i] == bStr[j] {
+                    states[i][j] = Helper.Max(a: states[i][j-1], b: states[i-1][j], c: states[i-1][j-1] + 1)
+                }else {
+                    states[i][j] = Helper.Max(a: states[i][j-1], b: states[i-1][j], c: states[i-1][j-1])
+                }
+            }
+        }
+        
+        for ls in states {
+            print(ls)
+        }
+        
+        return states[aStr.count - 1][bStr.count - 1]
     }
 }

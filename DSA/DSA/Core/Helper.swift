@@ -23,6 +23,27 @@ public class Helper: NSObject {
         arr[j] = arr[i]
         arr[i] = t
     }
+    
+    
+    /// 三数最小值
+    ///
+    /// - Parameters:
+    ///   - a: a
+    ///   - b: b
+    ///   - c: c
+    static public func Min<T: Comparable>(a: T, b: T, c: T) -> T {
+        return min(a, b, c)
+    }
+    
+    /// 三数最大值
+    ///
+    /// - Parameters:
+    ///   - a: a
+    ///   - b: b
+    ///   - c: c
+    static public func Max<T: Comparable>(a: T, b: T, c: T) -> T {
+        return max(a, b, c)
+    }
 }
 
 // MARK: - 扩展系统的String类, 支持整型下下标访问

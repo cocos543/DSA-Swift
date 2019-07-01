@@ -1,5 +1,5 @@
 # 文档更新说明
-* 最后更新 2019年06月27日
+* 最后更新 2019年07月01日
 * 首次更新 2019年05月22日
 
 # DSA
@@ -245,7 +245,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 * [硬币找零模型](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic/Dynamic.swift) ✓
 
-* [求解字符串相似度模型](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic/Dynamic.swift)
+* [求解字符串相似度模型](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Dynamic/Dynamic.swift) ✓
 
 
 
