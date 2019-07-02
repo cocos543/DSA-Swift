@@ -37,5 +37,9 @@ class DynamicTests: XCTestCase {
     func testLongestCommonSubstring() {
         XCTAssertEqual(4, Dynamic.LongestCommonSubstring(aStr: "mitcmu", bStr: "mtacnu"))
     }
+    
+    func testLongestSubsequence() {
+        XCTAssertEqual(4, Dynamic.LongestSubsequence(arr: [2, 9, 3, 6, 5, 1, 7]))
+    }
 
 }
