@@ -66,23 +66,23 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 * [冒泡排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort/Sort.swift) ✓
 最好时间复杂度O(n), 最坏时间复杂度O(n^2), 平均时间复杂度O(n^2), 空间复杂度O(1)
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BubbleSort.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/BubbleSort.jpg)
 
 
 * [直接插入排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort/Sort.swift) ✓
 
 最好时间复杂度O(n), 最坏时间复杂度O(n^2), 平均时间复杂度O(n^2), 空间复杂度O(1)
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/StraightInsertionSort.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/StraightInsertionSort.jpg)
 
 * [选择排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort/Sort.swift) ✓
 
 最好时间复杂度O(n^2), 最坏时间复杂度O(n^2), 平均时间复杂度O(n^2), 空间复杂度O(1)
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/SelectionSort.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/SelectionSort.jpg)
 
 * [归并排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort/SortMerging.swift) ✓
 
 最好时间复杂度O(nlogn), 最坏时间复杂度O(nlogn), 平均时间复杂度O(nlogn), 空间复杂度O(n)
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/MergingSort.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/MergingSort.jpg)
 
 * [计数排序(特殊桶排序)](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort/Sort.swift) ✓
 
@@ -93,14 +93,14 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [快速排序](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort/SortQuick.swift) ✓
 
 最好时间复杂度O(nlogn), 最坏时间复杂度O(n^2), 平均时间复杂度O(nlogn), 空间复杂度O(1)
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/QuickSort.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/QuickSort.jpg)
 
 * [快排思想查找第k大元素](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Sort/SortQuick.swift) ✓
 
 时间复杂度O(n), 空间复杂度O(1)
 
 分区函数算法示意图
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/QuickSortPartition.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/QuickSortPartition.jpg)
 
 ## [查找](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Search)
 
@@ -109,7 +109,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 * [二分查找](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Search/Search.swift) ✓
 
 时间复杂度O(logn), 空间复杂度O(1)
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinarySearch.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/BinarySearch.jpg)
 
 * [求解平方根](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Search/Search.swift) ✓
 
@@ -140,7 +140,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 3. 合理使用内存空间, 不浪费
 
 时间复杂度O(1),  空间复杂度O(n)
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/AddressingHashTable.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/AddressingHashTable.jpg)
 
 ## [树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees)
 
@@ -152,7 +152,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 4. 层序遍历 ✓
 5. 检测二叉树深度 ✓
 
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinaryTreePrint.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/BinaryTreePrint.jpg)
 
 * [二叉查找树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/BinarySearchTree.swift)
 
@@ -160,7 +160,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 时间复杂度O(logn), 空间复杂度O(1)
 
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BinarySearchTree.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/BinarySearchTree.jpg)
 
 * [红黑树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees)
 
@@ -178,9 +178,9 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 时间复杂度O(n*logn), 空间复杂度O(1)
 
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapInsert.jpg)
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapDeleteTop.jpg)
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/HeapSort.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/HeapInsert.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/HeapDeleteTop.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/HeapSort.jpg)
 
 * [Trie树](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/TrieTree.swift) ✓
 
@@ -189,7 +189,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 2. 支持任意字符构建字典树
 3. 支持字符串增删查找
 
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/TrieTree.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/TrieTree.jpg)
 
 * [AC自动机算法(Aho–Corasick)](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Trees/ACTree.swift) ✓
 
@@ -203,7 +203,7 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 * [邻接表实现](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Graph/Graph.swift) ✓
 
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/Graph.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/Graph.jpg)
 
 ### 图的搜索
 
@@ -222,14 +222,14 @@ Data Structure &amp; Algorithm, 算法之美, Swift语言实现
 
 复杂度推导: 实在太复杂, 能力有限, 有兴趣可以看附件推荐的论文; 下面给出代码实现中两个重要数组的示意图, 用于大幅提升算法性能.
 
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BoyerMooreSuffix.jpg)
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/BoyerMooreIsPrefix.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/BoyerMooreSuffix.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/BoyerMooreIsPrefix.jpg)
 
 * [KMP匹配算法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/String/StringMatching.swift) ✓
 
 时间复杂度O(n+m), n是主串长度, m是模式串长度. KMP算法的核心预处理数组如下示意图
 
-![image](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Resource/Img/KMPNexts.jpg)
+![image](https://raw.githubusercontent.com/cocos543/DSA-Swift/master/DSA/DSA/Resource/Img/KMPNexts.jpg)
 
 ## [回溯算法](https://github.com/cocos543/DSA-Swift/blob/master/DSA/DSA/Core/Backtraking)
 
